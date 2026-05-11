@@ -372,6 +372,7 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
           -webkit-backdrop-filter: blur(6px);
           border-radius: 999px;
           z-index: 5;
+          white-space: nowrap;
         }
         .bp-loader-tag--top { top: 60px; }
         .bp-loader-tag--bottom { bottom: 60px; color: #808080; }
@@ -428,8 +429,8 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
         }
 
         @media (max-width: 480px) {
-          .bp-loader-tag--top { top: 40px; font-size: 9px; }
-          .bp-loader-tag--bottom { bottom: 40px; font-size: 9px; }
+          .bp-loader-tag--top { top: 40px; font-size: 8px; padding: 5px 10px; gap: 6px; letter-spacing: 0.14em; }
+          .bp-loader-tag--bottom { bottom: 40px; font-size: 8px; padding: 5px 10px; letter-spacing: 0.14em; }
           .bp-loader-bracket { width: 18px; height: 18px; }
           .bp-loader-bracket--tl, .bp-loader-bracket--tr { top: 16px; }
           .bp-loader-bracket--bl, .bp-loader-bracket--br { bottom: 16px; }
