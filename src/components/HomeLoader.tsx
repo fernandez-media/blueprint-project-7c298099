@@ -83,8 +83,53 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
       data-progress={pctLabel}
       className={`bp-home-loader${fading ? " bp-home-loader--fading" : ""}`}
     >
-      {/* Faint grid backdrop */}
+      {/* Faint grid backdrop (coarse + fine) */}
       <div className="bp-loader-grid" aria-hidden="true" />
+      <div className="bp-loader-grid bp-loader-grid--fine" aria-hidden="true" />
+
+      {/* Conic radar sweep */}
+      <div className="bp-loader-radar" aria-hidden="true" />
+
+      {/* Topographic / blueprint contours */}
+      <svg className="bp-loader-topo" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path d="M0,200 Q250,100 500,200 T1000,200" fill="none" stroke="white" strokeWidth="0.5" />
+        <path d="M0,400 Q250,300 500,400 T1000,400" fill="none" stroke="white" strokeWidth="0.5" />
+        <path d="M0,600 Q250,500 500,600 T1000,600" fill="none" stroke="white" strokeWidth="0.5" />
+        <path d="M0,800 Q250,700 500,800 T1000,800" fill="none" stroke="white" strokeWidth="0.5" />
+        <circle cx="500" cy="500" r="220" fill="none" stroke="white" strokeWidth="0.4" strokeDasharray="2 6" />
+        <circle cx="500" cy="500" r="320" fill="none" stroke="white" strokeWidth="0.3" strokeDasharray="4 8" />
+        <circle cx="500" cy="500" r="450" fill="none" stroke="white" strokeWidth="0.2" />
+      </svg>
+
+      {/* DNA / molecular wireframe accent */}
+      <svg className="bp-loader-helix" viewBox="0 0 100 200" aria-hidden="true">
+        <path d="M20,0 L80,50 L20,100 L80,150 L20,200" fill="none" stroke="white" strokeWidth="0.5" />
+        <path d="M80,0 L20,50 L80,100 L20,150 L80,200" fill="none" stroke="white" strokeWidth="0.5" />
+        <circle cx="20" cy="50" r="1.5" fill="white" />
+        <circle cx="80" cy="50" r="1.5" fill="white" />
+        <circle cx="50" cy="100" r="1.2" fill="white" />
+        <circle cx="20" cy="150" r="1.5" fill="white" />
+        <circle cx="80" cy="150" r="1.5" fill="white" />
+      </svg>
+
+      {/* Telemetry tickers — top-left */}
+      <div className="bp-loader-telemetry bp-loader-telemetry--tl" aria-hidden="true">
+        <div>SYS_STATE: STABLE</div>
+        <div>BUFFER: 0x8842FF</div>
+        <div>TEMP: 24.2°C</div>
+        <div className="bp-loader-blink-text">CONNECTING...</div>
+      </div>
+
+      {/* Telemetry tickers — bottom-right */}
+      <div className="bp-loader-telemetry bp-loader-telemetry--br" aria-hidden="true">
+        <div>LAT: 18.4488° N</div>
+        <div>LNG: 66.0614° W</div>
+        <div>ALT: 12.0000m</div>
+        <div>FRQ: 2.45GHz</div>
+      </div>
+
+      {/* Scanlines overlay */}
+      <div className="bp-loader-scanlines" aria-hidden="true" />
 
       {/* Vertical scan line sweep */}
       <div className="bp-loader-scanline" aria-hidden="true" />
