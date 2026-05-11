@@ -347,7 +347,7 @@ const HuellaRoja = ({ showDock }: { showDock: boolean }) => {
   return (
     <>
       <SEO
-        title="Hack Bar — Nutrition Engineering | Blueprint Project"
+        title="Hack Bar"
         description="Hack Bar: meals designed to fuel performance, recovery and body composition with real ingredients. Nutrition engineering at Blueprint Project, Santurce PR."
         canonical="https://blueprintproject.com/huella-roja"
       />

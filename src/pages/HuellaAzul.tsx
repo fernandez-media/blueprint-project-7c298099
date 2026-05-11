@@ -3,7 +3,7 @@ import SEO from "@/components/SEO";
 const HuellaAzul = () => (
   <>
     <SEO
-      title="Blueprint Lab — Elite Training System | Blueprint Project"
+      title="Blueprint Lab"
       description="Blueprint Lab: data-driven elite training system. Strength, physique, mobility and real progression through structured coaching at our premium gym in Santurce, Puerto Rico."
       canonical="https://blueprintproject.com/huella-azul"
     />

@@ -98,7 +98,7 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
       {/* Top status tag */}
       <div className="bp-loader-tag bp-loader-tag--top" aria-hidden="true">
         <span className="bp-loader-dot" />
-        BLUEPRINT // SYSTEM INIT
+        BLUEPRINT // SYSTEM UNIT
       </div>
 
       {/* Center: ring + percentage */}
