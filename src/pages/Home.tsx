@@ -350,7 +350,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
         <div style={{ pointerEvents: showDock ? "all" : "none" }} className="home-dock">
           <Dock>
             {HUELLAS.map((h) => (
-              <DockIcon key={h.route} tooltip={h.tooltip} onClick={() => navigate(h.route)}>
+              <DockIcon key={h.route} onClick={() => navigate(h.route)}>
                 <div style={{
                   display: "flex", alignItems: "center", justifyContent: "center",
                   width: "100%", height: "100%",

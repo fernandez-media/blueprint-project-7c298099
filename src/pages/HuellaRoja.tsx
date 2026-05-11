@@ -462,7 +462,7 @@ const HuellaRoja = ({ showDock }: { showDock: boolean }) => {
         <div style={{ position: "fixed", top: 24, left: "50%", transform: "translateX(-50%)", zIndex: 50 }}>
           <Dock magnification={64} distance={100}>
             {HUELLAS.map((h) => (
-              <DockIcon key={h.route} tooltip={h.tooltip} onClick={() => navigate(h.route)}>
+              <DockIcon key={h.route} onClick={() => navigate(h.route)}>
                 <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12, background: `radial-gradient(circle, ${h.glow} 0%, transparent 70%)` }}>
                   <FingerprintSVG color={h.color} size={32} />
                 </div>
