@@ -442,6 +442,39 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
           .bp-loader-helix { display: none; }
         }
 
+        /* Fine-tune tag for small phones (320–375px) */
+        @media (max-width: 375px) {
+          .bp-loader-tag--top,
+          .bp-loader-tag--bottom {
+            font-size: 7.5px;
+            padding: 4px 9px;
+            gap: 5px;
+            letter-spacing: 0.12em;
+          }
+          .bp-loader-dot { width: 5px; height: 5px; }
+        }
+
+        /* Extra-small phones (≤320px) */
+        @media (max-width: 320px) {
+          .bp-loader-tag--top,
+          .bp-loader-tag--bottom {
+            font-size: 7px;
+            padding: 4px 8px;
+            gap: 4px;
+            letter-spacing: 0.1em;
+          }
+        }
+
+        /* Comfortable mid-range phones (376–480px) */
+        @media (min-width: 376px) and (max-width: 480px) {
+          .bp-loader-tag--top,
+          .bp-loader-tag--bottom {
+            font-size: 9px;
+            padding: 5px 12px;
+            letter-spacing: 0.16em;
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .bp-loader-scanline,
           .bp-loader-radar,
