@@ -751,54 +751,10 @@ const HuellaRoja = ({ showDock }: { showDock: boolean }) => {
         })()}
       </motion.section>
 
-      {/* ═══ SECTION D: MEET THE CHEF ═══ */}
+      {/* ═══ SECTION D: 3D CAROUSEL ═══ */}
       <section
         style={{ backgroundColor: "#0a0a0a", padding: "0 7% 72px", position: "relative", zIndex: 1 }}
       >
-        <div className="hr-chef-row" style={{ display: "flex", alignItems: "flex-start", gap: 40, marginBottom: 40 }}>
-          {/* Left: title + subtitle — slides in from the left */}
-          <motion.div {...scrollRevealSlideLeft} className="hr-chef-left" style={{ flex: "0 0 55%", display: "flex", flexDirection: "column", justifyContent: "center", paddingTop: 20 }}>
-            <TextScramble
-              as="p"
-              style={{ fontFamily: "'Michroma', sans-serif", fontSize: "clamp(20px, 3vw, 36px)", color: "#FFFFFF", textTransform: "uppercase", letterSpacing: "0.04em", lineHeight: 1.1, marginBottom: 16 }}
-              duration={1.2}
-              speed={0.04}
-            >
-              MEET THE CHEF
-            </TextScramble>
-            <p className="hr-chef-subtitle" style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 300, color: "rgba(255,255,255,0.4)", lineHeight: 1.7, maxWidth: 480 }}>
-              <span className="hidden md:inline">The mind behind every recipe. Personalized nutrition crafted with science and passion.</span>
-              <span className="md:hidden text-xs font-mono">
-                The mind behind every recipe.
-                <br />
-                Personalized nutrition crafted with science and passion.
-              </span>
-            </p>
-            <div style={{ width: 60, height: 2, background: "#FF3B3B", marginTop: 20, borderRadius: 1 }} />
-          </motion.div>
-          {/* Right: chef photo — slides in from the right */}
-          <motion.div {...scrollRevealSlideRight} className="hr-chef-right" style={{ flex: "0 0 45%", minHeight: 450, height: "auto", aspectRatio: "16 / 10", borderRadius: 16, overflow: "hidden", position: "relative" }}>
-            <div style={{ width: "100%", height: "100%", borderRadius: 16, border: "1px solid rgba(255,59,59,0.15)", overflow: "hidden", position: "relative" }}>
-              <img
-                src={chefImage}
-                alt="Chef preparing a dish in a professional kitchen"
-                width={1280}
-                height={800}
-                loading="lazy"
-                decoding="async"
-                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
-              />
-              {/* Subtle gradient for legibility / cohesion */}
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.25) 100%)", zIndex: 1, pointerEvents: "none" }} />
-              {/* Corner brackets */}
-              <div style={{ position: "absolute", top: 12, left: 12, width: 20, height: 20, borderTop: "2px solid rgba(255,59,59,0.4)", borderLeft: "2px solid rgba(255,59,59,0.4)", zIndex: 2 }} />
-              <div style={{ position: "absolute", top: 12, right: 12, width: 20, height: 20, borderTop: "2px solid rgba(255,59,59,0.4)", borderRight: "2px solid rgba(255,59,59,0.4)", zIndex: 2 }} />
-              <div style={{ position: "absolute", bottom: 12, left: 12, width: 20, height: 20, borderBottom: "2px solid rgba(255,59,59,0.4)", borderLeft: "2px solid rgba(255,59,59,0.4)", zIndex: 2 }} />
-              <div style={{ position: "absolute", bottom: 12, right: 12, width: 20, height: 20, borderBottom: "2px solid rgba(255,59,59,0.4)", borderRight: "2px solid rgba(255,59,59,0.4)", zIndex: 2 }} />
-            </div>
-          </motion.div>
-        </div>
-        {/* 3D Carousel */}
         <Carousel3D />
       </section>
 
