@@ -83,8 +83,53 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
       data-progress={pctLabel}
       className={`bp-home-loader${fading ? " bp-home-loader--fading" : ""}`}
     >
-      {/* Faint grid backdrop */}
+      {/* Faint grid backdrop (coarse + fine) */}
       <div className="bp-loader-grid" aria-hidden="true" />
+      <div className="bp-loader-grid bp-loader-grid--fine" aria-hidden="true" />
+
+      {/* Conic radar sweep */}
+      <div className="bp-loader-radar" aria-hidden="true" />
+
+      {/* Topographic / blueprint contours */}
+      <svg className="bp-loader-topo" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path d="M0,200 Q250,100 500,200 T1000,200" fill="none" stroke="white" strokeWidth="0.5" />
+        <path d="M0,400 Q250,300 500,400 T1000,400" fill="none" stroke="white" strokeWidth="0.5" />
+        <path d="M0,600 Q250,500 500,600 T1000,600" fill="none" stroke="white" strokeWidth="0.5" />
+        <path d="M0,800 Q250,700 500,800 T1000,800" fill="none" stroke="white" strokeWidth="0.5" />
+        <circle cx="500" cy="500" r="220" fill="none" stroke="white" strokeWidth="0.4" strokeDasharray="2 6" />
+        <circle cx="500" cy="500" r="320" fill="none" stroke="white" strokeWidth="0.3" strokeDasharray="4 8" />
+        <circle cx="500" cy="500" r="450" fill="none" stroke="white" strokeWidth="0.2" />
+      </svg>
+
+      {/* DNA / molecular wireframe accent */}
+      <svg className="bp-loader-helix" viewBox="0 0 100 200" aria-hidden="true">
+        <path d="M20,0 L80,50 L20,100 L80,150 L20,200" fill="none" stroke="white" strokeWidth="0.5" />
+        <path d="M80,0 L20,50 L80,100 L20,150 L80,200" fill="none" stroke="white" strokeWidth="0.5" />
+        <circle cx="20" cy="50" r="1.5" fill="white" />
+        <circle cx="80" cy="50" r="1.5" fill="white" />
+        <circle cx="50" cy="100" r="1.2" fill="white" />
+        <circle cx="20" cy="150" r="1.5" fill="white" />
+        <circle cx="80" cy="150" r="1.5" fill="white" />
+      </svg>
+
+      {/* Telemetry tickers — top-left */}
+      <div className="bp-loader-telemetry bp-loader-telemetry--tl" aria-hidden="true">
+        <div>SYS_STATE: STABLE</div>
+        <div>BUFFER: 0x8842FF</div>
+        <div>TEMP: 24.2°C</div>
+        <div className="bp-loader-blink-text">CONNECTING...</div>
+      </div>
+
+      {/* Telemetry tickers — bottom-right */}
+      <div className="bp-loader-telemetry bp-loader-telemetry--br" aria-hidden="true">
+        <div>LAT: 18.4488° N</div>
+        <div>LNG: 66.0614° W</div>
+        <div>ALT: 12.0000m</div>
+        <div>FRQ: 2.45GHz</div>
+      </div>
+
+      {/* Scanlines overlay */}
+      <div className="bp-loader-scanlines" aria-hidden="true" />
 
       {/* Vertical scan line sweep */}
       <div className="bp-loader-scanline" aria-hidden="true" />
@@ -177,7 +222,7 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
           position: fixed;
           inset: 0;
           z-index: 9999;
-          background: #1F1F1F;
+          background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 70%);
           color: #B0B0B0;
           font-family: 'Orbitron', 'Space Grotesk', system-ui, sans-serif;
           letter-spacing: 0.12em;
@@ -188,24 +233,96 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
           opacity: 1;
           transition: opacity 0.5s ease-out;
         }
-        .bp-home-loader--fading {
-          opacity: 0;
-          pointer-events: none;
-        }
+        .bp-home-loader--fading { opacity: 0; pointer-events: none; }
 
-        /* Faint grid */
+        /* Faint grid (coarse) */
         .bp-loader-grid {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-          background-size: 56px 56px;
-          mask-image: radial-gradient(circle at center, black 30%, transparent 75%);
-          -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 75%);
+            linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+          background-size: 60px 60px;
+          mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+          -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+        }
+        .bp-loader-grid--fine {
+          background-image:
+            linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+          background-size: 12px 12px;
+          mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
+          -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
         }
 
-        /* Scan line */
+        /* Conic radar sweep */
+        .bp-loader-radar {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 140vmax;
+          height: 140vmax;
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          background: conic-gradient(from 0deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+          animation: bp-loader-radar-spin 8s linear infinite;
+          pointer-events: none;
+          mask-image: radial-gradient(circle, black 0%, black 35%, transparent 70%);
+          -webkit-mask-image: radial-gradient(circle, black 0%, black 35%, transparent 70%);
+        }
+        @keyframes bp-loader-radar-spin {
+          to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Topographic SVG overlay */
+        .bp-loader-topo {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0.12;
+          pointer-events: none;
+        }
+
+        /* DNA helix accent */
+        .bp-loader-helix {
+          position: absolute;
+          left: 8%;
+          bottom: 18%;
+          width: 120px;
+          height: 200px;
+          opacity: 0.08;
+          pointer-events: none;
+        }
+
+        /* Telemetry tickers */
+        .bp-loader-telemetry {
+          position: absolute;
+          font-size: 9px;
+          letter-spacing: 0.2em;
+          color: rgba(255,255,255,0.4);
+          text-transform: uppercase;
+          line-height: 1.8;
+          font-family: 'JetBrains Mono', 'Orbitron', monospace;
+          pointer-events: none;
+          z-index: 2;
+        }
+        .bp-loader-telemetry--tl { top: 60px; left: 60px; text-align: left; }
+        .bp-loader-telemetry--br { bottom: 60px; right: 60px; text-align: right; }
+        .bp-loader-blink-text { animation: bp-loader-blink 1.4s ease-in-out infinite; }
+
+        /* Scanlines overlay */
+        .bp-loader-scanlines {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.18) 50%);
+          background-size: 100% 4px;
+          z-index: 3;
+          opacity: 0.5;
+        }
+
+        /* Vertical sweep */
         .bp-loader-scanline {
           position: absolute;
           left: 0;
@@ -215,6 +332,7 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
           background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
           box-shadow: 0 0 12px rgba(255,255,255,0.4);
           animation: bp-loader-scan 3.2s linear infinite;
+          z-index: 2;
         }
         @keyframes bp-loader-scan {
           0%   { transform: translateY(0); opacity: 0; }
@@ -230,6 +348,7 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
           height: 22px;
           border: 1px solid rgba(255,255,255,0.55);
           opacity: 0.8;
+          z-index: 4;
         }
         .bp-loader-bracket--tl { top: 24px; left: 24px; border-right: 0; border-bottom: 0; }
         .bp-loader-bracket--tr { top: 24px; right: 24px; border-left: 0; border-bottom: 0; }
@@ -246,9 +365,13 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
           display: flex;
           align-items: center;
           gap: 8px;
-          padding: 6px 12px;
-          border: 1px solid rgba(255,255,255,0.15);
-          background: rgba(255,255,255,0.02);
+          padding: 6px 14px;
+          border: 1px solid rgba(255,255,255,0.18);
+          background: rgba(0,0,0,0.55);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          border-radius: 999px;
+          z-index: 5;
         }
         .bp-loader-tag--top { top: 60px; }
         .bp-loader-tag--bottom { bottom: 60px; color: #808080; }
@@ -271,6 +394,7 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
           display: flex;
           align-items: center;
           justify-content: center;
+          z-index: 5;
         }
         .bp-loader-ring {
           display: block;
@@ -313,10 +437,13 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
           .bp-loader-bracket--tr, .bp-loader-bracket--br { right: 16px; }
           .bp-loader-pct { font-size: 40px; }
           .bp-loader-pct-symbol { font-size: 18px; }
+          .bp-loader-telemetry { display: none; }
+          .bp-loader-helix { display: none; }
         }
 
         @media (prefers-reduced-motion: reduce) {
           .bp-loader-scanline,
+          .bp-loader-radar,
           .bp-loader-dot { animation: none; }
         }
       `}</style>
