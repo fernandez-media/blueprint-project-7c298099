@@ -218,8 +218,15 @@ const FeatureCard = memo(function FeatureCard({
   };
 
   if (variant === "desktop") {
+    const fxDelay = cascadeIndex != null ? `${cascadeIndex * 0.6}s` : "0s";
     return (
-      <motion.div ref={cardRef} variants={cinematicSlideUp} style={containerStyle} {...hoverHandlers}>
+      <motion.div
+        ref={cardRef}
+        variants={cinematicSlideUp}
+        className="feature-card-fx"
+        style={{ ...containerStyle, ["--fx-delay" as never]: fxDelay }}
+        {...hoverHandlers}
+      >
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16, width: "100%" }}>
           <div style={desktopIconBoxStyle}>{icon}</div>
           <div style={TITLE_DESKTOP_STYLE}>{title}</div>
