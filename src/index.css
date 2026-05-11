@@ -2583,3 +2583,58 @@ html, body {
     line-height: 1.6;
   }
 }
+
+/* Feature card subtle FX: continuous shimmer + slow diagonal sweep */
+.feature-card-fx {
+  overflow: hidden;
+  isolation: isolate;
+}
+.feature-card-fx::before,
+.feature-card-fx::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 0;
+}
+.feature-card-fx::before {
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  animation: feature-shimmer 6s ease-in-out infinite;
+  animation-delay: var(--fx-delay, 0s);
+}
+.feature-card-fx::after {
+  background: linear-gradient(
+    115deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 58%
+  );
+  transform: translateX(-110%);
+  mix-blend-mode: screen;
+  animation: feature-sweep 7s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation-delay: var(--fx-delay, 0s);
+}
+.feature-card-fx > * {
+  position: relative;
+  z-index: 1;
+}
+@keyframes feature-shimmer {
+  0%, 100% { background-position: 0% 0%; }
+  50%      { background-position: 100% 100%; }
+}
+@keyframes feature-sweep {
+  0%   { transform: translateX(-110%); }
+  22%  { transform: translateX(110%); }
+  100% { transform: translateX(110%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .feature-card-fx::before,
+  .feature-card-fx::after { animation: none; }
+}
