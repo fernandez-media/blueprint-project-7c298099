@@ -1,28 +1,25 @@
-# Cambios solicitados
+# Estado: ya implementado
 
-Cuatro ediciones puntuales de texto. Sin cambios de diseño ni de lógica.
+Estos cambios ya se aplicaron en el turno anterior. Verifiqué los archivos y todo está correcto:
 
-## 1. Loader inicial — "SYSTEM INIT" → "SYSTEM UNIT"
+| Cambio | Archivo | Valor actual |
+|--------|---------|--------------|
+| Loader | `src/components/HomeLoader.tsx:101` | `BLUEPRINT // SYSTEM UNIT` ✓ |
+| Tab Azul | `src/pages/HuellaAzul.tsx:6` | `Blueprint Lab` ✓ |
+| Tab Roja | `src/pages/HuellaRoja.tsx:350` | `Hack Bar` ✓ |
+| Tab Verde | `src/pages/HuellaVerde.tsx:161` | `Reset` ✓ |
 
-**Archivo:** `src/components/HomeLoader.tsx` (línea 101)
+## Si aún ves los textos viejos
 
-- Antes: `BLUEPRINT // SYSTEM INIT`
-- Después: `BLUEPRINT // SYSTEM UNIT`
+Posibles causas:
 
-## 2. Título de pestaña del browser para cada pilar
+1. **Caché del navegador** — refresca con Cmd/Ctrl + Shift + R.
+2. **Versión publicada vs preview** — los cambios están en el preview. Para que aparezcan en `blueprint-auth-glow.lovable.app` o tu dominio custom necesitas publicar de nuevo.
+3. **Quieres cambiar también algo más** (por ejemplo el `<title>` global de `index.html`, o los labels visibles del dock de navegación que dicen "Training/Hack Bar/Reset"). En ese caso, dime exactamente cuál y lo agrego al plan.
 
-Actualmente los títulos son largos ("Blueprint Lab — Elite Training System | Blueprint Project", etc.). Los simplifico al nombre exacto que pediste, para que la pestaña del navegador muestre solo eso.
+## Acción propuesta
 
-| Ruta | Archivo | Nuevo `<title>` |
-|------|---------|-----------------|
-| `/huella-azul` | `src/pages/HuellaAzul.tsx` | `Blueprint Lab` |
-| `/huella-roja` | `src/pages/HuellaRoja.tsx` | `Hack Bar` |
-| `/huella-verde` | `src/pages/HuellaVerde.tsx` | `Reset` |
-
-Solo cambio el prop `title` que recibe el componente `<SEO>` en cada página. El componente `SEO` ya escribe `document.title`, así que la pestaña del browser reflejará el cambio inmediatamente al navegar a cada ruta.
-
-## Fuera de alcance
-
-- No modifico rutas (`/huella-azul`, `/huella-roja`, `/huella-verde`) ni labels de navegación interna.
-- No cambio el `<title>` global de `index.html` (sigue siendo el de la home).
-- No toco descripciones meta ni canonicals.
+No hay nada más que codificar. Confírmame si:
+- (a) ya ves los cambios y todo bien → cerramos.
+- (b) aún ves los textos viejos → te ayudo a publicar / limpiar caché.
+- (c) quieres cambios adicionales (título global, labels del dock, etc.) → dime cuáles y armamos un nuevo plan.
