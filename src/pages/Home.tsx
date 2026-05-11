@@ -82,6 +82,7 @@ const aboutImages = [
   "/about/about-4.jpg",
   "/about/about-5.jpg",
   "/about/about-6.jpg",
+  "/about/blueprint-forever-1080w.webp",
 ];
 
 const labImages = [
