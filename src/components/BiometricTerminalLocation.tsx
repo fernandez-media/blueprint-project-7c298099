@@ -1,9 +1,6 @@
 const BiometricTerminalLocation = () => {
-  const phone = "+19392735708";
-  const phoneDisplay = "(939) 273-5708";
   const address = "1951 Calle Loíza, Santurce, PR 00911";
-  const whatsappUrl =
-    "https://wa.me/19392735708?text=Hola%20Blueprint!%20Vi%20su%20p%C3%A1gina%20web%20y%20estoy%20interesado%20en%20conocer%20m%C3%A1s%20sobre%20los%20planes%20y%20la%20membres%C3%ADa.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F";
+  const signupUrl = "https://blueprint.gymmasteronline.com/portal/signup/6";
   const mapsUrl =
     "https://www.google.com/maps/search/?api=1&query=1951+Calle+Loiza+Santurce+PR+00911";
 
