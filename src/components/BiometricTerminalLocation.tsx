@@ -66,38 +66,30 @@ const BiometricTerminalLocation = () => {
         <div className="bio-row">
           <span className="bio-row-prefix">SLOTS</span>
           <span className="bio-row-value">
-            <span className="bio-counter">10</span> / 24
+            <span className="bio-counter">38</span> / 50
           </span>
-        </div>
-
-        <div className="bio-row">
-          <span className="bio-row-prefix">PHONE</span>
-          <span className="bio-row-value bio-phone-value">{phoneDisplay}</span>
         </div>
       </div>
 
-      {/* Action buttons: CALL + OPEN IN MAPS */}
+      {/* Action buttons: OPEN IN MAPS + START YOUR BLUEPRINT PROJECT */}
       <div className="bio-actions">
-        <a href={`tel:${phone}`} className="bio-action" aria-label="Llamar a Blueprint">
-          ◉ CALL
-        </a>
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bio-action"
-          aria-label="Contactar a Blueprint por WhatsApp"
-        >
-          ✦ WHATSAPP
-        </a>
         <a
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="bio-action bio-action-primary"
+          className="bio-action"
           aria-label="Open in Google Maps"
         >
           ▸ OPEN IN MAPS
+        </a>
+        <a
+          href={signupUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bio-action bio-action-primary"
+          aria-label="Start your Blueprint Project"
+        >
+          ✦ START YOUR BLUEPRINT PROJECT
         </a>
       </div>
     </div>
