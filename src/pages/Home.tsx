@@ -76,13 +76,13 @@ const HUELLAS = [
 /* ══════════════════════════════════════════════════════════ */
 
 const aboutImages = [
+  "/about/blueprint-forever-1080w.webp",
   "/about/about-1.jpg",
   "/about/about-2.jpg",
   "/about/about-3.jpg",
   "/about/about-4.jpg",
   "/about/about-5.jpg",
   "/about/about-6.jpg",
-  "/about/blueprint-forever-1080w.webp",
 ];
 
 const labImages = [
