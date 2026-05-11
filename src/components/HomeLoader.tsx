@@ -437,10 +437,13 @@ const HomeLoader = ({ onComplete, duration = 4000 }: HomeLoaderProps) => {
           .bp-loader-bracket--tr, .bp-loader-bracket--br { right: 16px; }
           .bp-loader-pct { font-size: 40px; }
           .bp-loader-pct-symbol { font-size: 18px; }
+          .bp-loader-telemetry { display: none; }
+          .bp-loader-helix { display: none; }
         }
 
         @media (prefers-reduced-motion: reduce) {
           .bp-loader-scanline,
+          .bp-loader-radar,
           .bp-loader-dot { animation: none; }
         }
       `}</style>
