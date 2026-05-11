@@ -237,10 +237,10 @@ All colors MUST be HSL.
     display: block !important;
     flex: none !important;
     width: 100% !important;
-    max-width: 540px !important;
+    max-width: 420px !important;
     margin: 32px auto 0 !important;
     order: 0 !important;
-    aspect-ratio: 1 / 1 !important;
+    aspect-ratio: 9 / 16 !important;
     position: relative;
   }
   .about-photo-col.rotativo-container > * {
@@ -254,9 +254,9 @@ All colors MUST be HSL.
   .about-photo-col.rotativo-container {
     display: block !important;
     width: 100% !important;
-    max-width: 540px !important;
+    max-width: 480px !important;
     margin: 32px auto 0 !important;
-    aspect-ratio: 1 / 1 !important;
+    aspect-ratio: 9 / 16 !important;
     height: auto !important;
     position: relative;
   }

@@ -1,25 +1,26 @@
-# Estado: ya implementado
+## Cambios
 
-Estos cambios ya se aplicaron en el turno anterior. Verifiqué los archivos y todo está correcto:
+### 1. Añadir nueva imagen al rotador
+- Copiar el archivo subido (`blueprint_forever.webp`) a `public/about/blueprint-forever-1080w.webp`.
+- En `src/pages/Home.tsx` (línea 78), agregar `"/about/blueprint-forever-1080w.webp"` al final del array `aboutImages` (queda como 7ª imagen del ciclo).
+- No se toca el intervalo (línea 234) ni la transición de fade (línea 719). Sigue rotando con el mismo timing y efecto.
 
-| Cambio | Archivo | Valor actual |
-|--------|---------|--------------|
-| Loader | `src/components/HomeLoader.tsx:101` | `BLUEPRINT // SYSTEM UNIT` ✓ |
-| Tab Azul | `src/pages/HuellaAzul.tsx:6` | `Blueprint Lab` ✓ |
-| Tab Roja | `src/pages/HuellaRoja.tsx:350` | `Hack Bar` ✓ |
-| Tab Verde | `src/pages/HuellaVerde.tsx:161` | `Reset` ✓ |
+### 2. Cambiar el aspect ratio del contenedor en mobile a 9:16
 
-## Si aún ves los textos viejos
+Editar `src/index.css`:
 
-Posibles causas:
+- **Mobile (línea 243)**: cambiar `aspect-ratio: 1 / 1` → `aspect-ratio: 9 / 16` y subir `max-width` a `420px` para que el portrait no quede gigantesco en pantallas anchas-mobile.
+- **Tablet 768–1023px (línea 259)**: cambiar `aspect-ratio: 1 / 1` → `aspect-ratio: 9 / 16` con `max-width: 480px`.
+- **Desktop ≥1024px (líneas 320–326)**: sin cambios — el contenedor sigue llenando la columna derecha del grid 2×2 con `height: 100%` y `align-self: stretch`. No hay regla de aspect-ratio en este breakpoint, así que el desktop conserva su comportamiento landscape actual.
 
-1. **Caché del navegador** — refresca con Cmd/Ctrl + Shift + R.
-2. **Versión publicada vs preview** — los cambios están en el preview. Para que aparezcan en `blueprint-auth-glow.lovable.app` o tu dominio custom necesitas publicar de nuevo.
-3. **Quieres cambiar también algo más** (por ejemplo el `<title>` global de `index.html`, o los labels visibles del dock de navegación que dicen "Training/Hack Bar/Reset"). En ese caso, dime exactamente cuál y lo agrego al plan.
+### 3. Comportamiento de las imágenes
+Las `<img>` ya tienen `width:100%; height:100%; object-fit:cover; object-position:center` (líneas 715–721 en `Home.tsx`). No se modifica. Esto implica:
+- En mobile, la nueva imagen vertical (1080×1920, ratio 9:16) se ve completa sin cropping.
+- En mobile, las landscape existentes se recortan a los lados — comportamiento esperado.
+- En desktop, todas las imágenes (incluida la nueva) llenan el contenedor landscape vía `object-fit: cover`.
 
-## Acción propuesta
-
-No hay nada más que codificar. Confírmame si:
-- (a) ya ves los cambios y todo bien → cerramos.
-- (b) aún ves los textos viejos → te ayudo a publicar / limpiar caché.
-- (c) quieres cambios adicionales (título global, labels del dock, etc.) → dime cuáles y armamos un nuevo plan.
+## Lo que NO cambia
+- Intervalo y animación del rotador.
+- Cards, título y resto de la sección "Built for Human Evolution".
+- Otros rotadores (`labImages`, `hackbarImages`) y otras páginas.
+- Layout/altura de la sección en desktop.
