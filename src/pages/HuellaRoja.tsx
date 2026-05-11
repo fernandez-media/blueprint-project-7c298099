@@ -15,7 +15,7 @@ import { Dock, DockIcon } from "@/components/ui/dock";
 import ElectricBorder from "@/components/ElectricBorder";
 import BackToHomeButton from "@/components/BackToHomeButton";
 import GradualBlur from "@/components/GradualBlur";
-import chefImage from "@/assets/meet-the-chef.jpg";
+
 import heroHackbarDesktop from "@/assets/hero-hackbar-desktop.jpg?preset=responsive";
 
 /* ── Inline SVG ── */
