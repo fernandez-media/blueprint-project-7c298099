@@ -349,7 +349,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
           .about-features-mobile {
             display: flex !important;
           }
-          .pillar-desc { -webkit-line-clamp: 3; }
+          .pillar-desc { -webkit-line-clamp: unset; display: block; overflow: visible; font-size: 12px; line-height: 1.55; }
         }
 
         /* ── HOME HERO FLOATING CARD ── */
