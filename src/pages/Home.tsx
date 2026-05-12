@@ -409,7 +409,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
         .home-hero-wrapper { --home-hero-radius: 24px; --home-hero-x-padding: 16px; width: 100%; padding: 0 var(--home-hero-x-padding); background: #070612; }
         .home-hero { border-top-left-radius: var(--home-hero-radius); border-top-right-radius: var(--home-hero-radius); border-bottom-left-radius: 0; border-bottom-right-radius: 0; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.15); border-bottom: none; position: relative; }
         .home-hero::after { content: ''; position: absolute; inset: 0; border-top-left-radius: var(--home-hero-radius); border-top-right-radius: var(--home-hero-radius); pointer-events: none; box-shadow: 0 0 40px rgba(255,255,255,0.04) inset; z-index: 1; }
-        .home-white-wrapper { width: 100%; padding: 0 16px; background: transparent; }
+        .home-white-wrapper { width: 100%; padding: 0 16px; background: #FFFFFF; }
         @media (max-width: 1023px) and (min-width: 768px) {
           .home-hero-wrapper { --home-hero-radius: 20px; --home-hero-x-padding: 12px; }
           .home-white-wrapper { padding: 0 12px; }
