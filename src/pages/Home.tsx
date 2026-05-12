@@ -739,7 +739,8 @@ const Home = ({ showDock }: { showDock: boolean }) => {
               // outgoing image slides out the opposite side from the incoming.
               const diff = (index - currentAboutImage + total) % total;
               const isNext = diff === 1;
-              const offset = isActive ? 0 : isNext ? 24 : -24; // px slide
+              const offset = reducedMotion ? 0 : isActive ? 0 : isNext ? 24 : -24;
+              const scale = reducedMotion ? 1 : isActive ? 1 : 1.02;
               return (
                 <img
                   key={src}
@@ -751,11 +752,12 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                     position: "absolute", top: 0, left: 0,
                     width: "100%", height: "100%",
                     objectFit: "cover", objectPosition: "center",
-                    transition:
-                      "opacity 900ms cubic-bezier(0.4, 0, 0.2, 1), transform 1100ms cubic-bezier(0.4, 0, 0.2, 1)",
+                    transition: reducedMotion
+                      ? "opacity 600ms ease"
+                      : "opacity 900ms cubic-bezier(0.4, 0, 0.2, 1), transform 1100ms cubic-bezier(0.4, 0, 0.2, 1)",
                     opacity: isActive ? 1 : 0,
-                    transform: `translate3d(${offset}px, 0, 0) scale(${isActive ? 1 : 1.02})`,
-                    willChange: "opacity, transform",
+                    transform: `translate3d(${offset}px, 0, 0) scale(${scale})`,
+                    willChange: reducedMotion ? "opacity" : "opacity, transform",
                   }}
                 />
               );
