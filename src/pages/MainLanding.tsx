@@ -12,6 +12,7 @@ import { InteractiveImageAccordion } from '@/components/ui/interactive-image-acc
 import PricingSection from '@/components/PricingSection';
 import BentoGrid from '@/components/BentoGrid';
 import BackToHomeButton from '@/components/BackToHomeButton';
+import SEO from '@/components/SEO';
 import GradualBlur from '@/components/GradualBlur';
 import slider1 from '@/assets/slider/slider-1.jpg';
 import slider2 from '@/assets/slider/slider-2.jpg';
@@ -137,6 +138,16 @@ const MainLanding = ({ showDock }: { showDock: boolean }) => {
   }
 
   return (
+    <>
+    <SEO
+      title="Blueprint Lab — Performance Training | Blueprint Project"
+      description="Precision training methodology. Data-driven programming built to forge strength, physique, and real progression through structured coaching in Santurce, PR."
+      canonical="https://blueprintproject.com/lab"
+      ogTitle="Blueprint Lab — Performance Training"
+      ogDescription="Precision training methodology. Data-driven programming built to forge strength."
+      ogImage="/og-image.png"
+      ogUrl="https://blueprintproject.com/lab"
+    />
     <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -593,6 +604,7 @@ const MainLanding = ({ showDock }: { showDock: boolean }) => {
       `}</style>
       <BackToHomeButton />
     </motion.main>
+    </>
   );
 };
 
