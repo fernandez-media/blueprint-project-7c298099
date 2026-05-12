@@ -260,7 +260,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
   }
 
   return (
-    <motion.div
+    <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
