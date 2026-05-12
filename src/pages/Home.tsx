@@ -236,14 +236,34 @@ const Home = ({ showDock }: { showDock: boolean }) => {
   useEffect(() => {
     const node = aboutCarouselRef.current;
     if (!node) return;
+    // Debug mode: enable with ?debug=carousel in URL.
+    const DEBUG =
+      typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).get("debug") === "carousel";
+    const threshold = 0.1;
+    const rootMargin = "0px 0px -10% 0px";
+    if (DEBUG) {
+      console.log("[carousel] IO attached", { threshold, rootMargin, node });
+    }
     const io = new IntersectionObserver(
       (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setAboutCarouselVisible(true);
-          io.disconnect();
-        }
+        entries.forEach((e) => {
+          if (DEBUG) {
+            console.log("[carousel] IO fire", {
+              isIntersecting: e.isIntersecting,
+              ratio: e.intersectionRatio.toFixed(3),
+              threshold,
+              rootMargin,
+            });
+          }
+          if (e.isIntersecting) {
+            if (DEBUG) console.log("[carousel] -> visible, starting rotation");
+            setAboutCarouselVisible(true);
+            io.disconnect();
+          }
+        });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
+      { threshold, rootMargin }
     );
     io.observe(node);
     return () => io.disconnect();
