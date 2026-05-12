@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Home from "@/pages/Home";
 
 // Lazy-loaded routes (code splitting). Home stays static — it's the landing.
