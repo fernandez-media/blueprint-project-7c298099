@@ -704,7 +704,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
           </div>
 
           {/* Right — Rotating Image Slideshow */}
-          <div ref={aboutCarouselRef} className="about-photo-col rotativo-container" style={{
+          <div className="about-photo-col rotativo-container" style={{
             borderRadius: 16, overflow: "hidden",
             position: "relative",
           }}>
