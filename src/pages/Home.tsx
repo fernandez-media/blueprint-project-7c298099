@@ -859,8 +859,8 @@ const Home = ({ showDock }: { showDock: boolean }) => {
       </div>
       </LazyMount>
 
-      {/* ── Divider ── */}
-      <SectionDivider />
+
+
 
 
 
