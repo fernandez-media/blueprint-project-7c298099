@@ -355,7 +355,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
         .home-hero-wrapper { width: 100%; padding: 0 16px; background: #0a0a0a; }
         .home-hero { border-radius: 24px; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.15); position: relative; }
         .home-hero::after { content: ''; position: absolute; inset: 0; border-radius: 24px; pointer-events: none; box-shadow: 0 0 40px rgba(255,255,255,0.04) inset; z-index: 1; }
-        .home-white-wrapper { width: 100%; padding: 0 16px; background: #0a0a0a; }
+        .home-white-wrapper { width: 100%; padding: 0 16px; background: #FFFFFF; }
         @media (max-width: 1023px) and (min-width: 768px) {
           .home-hero-wrapper, .home-white-wrapper { padding: 0 12px; }
           .home-hero { border-radius: 20px; }
