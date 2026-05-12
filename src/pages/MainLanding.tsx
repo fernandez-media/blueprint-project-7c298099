@@ -604,6 +604,7 @@ const MainLanding = ({ showDock }: { showDock: boolean }) => {
       `}</style>
       <BackToHomeButton />
     </motion.main>
+    </>
   );
 };
 
