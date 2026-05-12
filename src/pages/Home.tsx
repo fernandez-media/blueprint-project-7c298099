@@ -230,45 +230,8 @@ const Home = ({ showDock }: { showDock: boolean }) => {
     if (loaderActive) return () => {};
     return attachVideoReadiness(mobileVideoRef.current, setMobileVideoReady);
   }, [loaderActive]);
-  // About carousel: don't auto-rotate until the carousel scrolls into view,
-  // so users always see the first image ("Blueprint is forever") first.
-  const aboutCarouselRef = useRef<HTMLDivElement>(null);
-  const [aboutCarouselVisible, setAboutCarouselVisible] = useState(false);
-  useEffect(() => {
-    const node = aboutCarouselRef.current;
-    if (!node) return;
-    // Debug mode: enable with ?debug=carousel in URL.
-    const DEBUG =
-      typeof window !== "undefined" &&
-      new URLSearchParams(window.location.search).get("debug") === "carousel";
-    const threshold = 0.1;
-    const rootMargin = "0px 0px -10% 0px";
-    if (DEBUG) {
-      console.log("[carousel] IO attached", { threshold, rootMargin, node });
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (DEBUG) {
-            console.log("[carousel] IO fire", {
-              isIntersecting: e.isIntersecting,
-              ratio: e.intersectionRatio.toFixed(3),
-              threshold,
-              rootMargin,
-            });
-          }
-          if (e.isIntersecting) {
-            if (DEBUG) console.log("[carousel] -> visible, starting rotation");
-            setAboutCarouselVisible(true);
-            io.disconnect();
-          }
-        });
-      },
-      { threshold, rootMargin }
-    );
-    io.observe(node);
-    return () => io.disconnect();
-  }, []);
+  // About carousel: rotate continuously from page mount so it is always running
+  // in preview and on the published site, without depending on viewport events.
   // Honor prefers-reduced-motion: when reduced, slow rotation way down (or stop)
   // and disable slide/zoom transforms below.
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -281,7 +244,6 @@ const Home = ({ showDock }: { showDock: boolean }) => {
     return () => mq.removeEventListener?.("change", update);
   }, []);
   useEffect(() => {
-    if (!aboutCarouselVisible) return;
     // Reduced motion: slow the rotation cadence so changes are calm; the
     // transform animation is also disabled below — only a gentle opacity fade.
     const interval = reducedMotion ? 9000 : 4000;
@@ -290,7 +252,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
       interval
     );
     return () => clearInterval(id);
-  }, [aboutCarouselVisible, reducedMotion]);
+  }, [reducedMotion]);
   useEffect(() => {
     const id = setInterval(
       () => setCurrentLabImage((p) => (p + 1) % labImages.length),
