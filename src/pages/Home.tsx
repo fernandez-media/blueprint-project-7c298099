@@ -847,10 +847,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                   textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 5, marginTop: 0,
                   textAlign: "left",
                 }}>{item.name}</h3>
-                <p style={{
-                  fontFamily: "'Inter', sans-serif", fontSize: 10, fontWeight: 300,
-                  color: "rgba(255,255,255,0.5)", lineHeight: 1.5, textAlign: "left", margin: 0,
-                }}>{item.desc}</p>
+                <p className="pillar-desc">{item.desc}</p>
               </div>
             </motion.div>
           ))}
