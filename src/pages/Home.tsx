@@ -1094,6 +1094,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
       </footer>
       </LazyMount>
     </motion.main>
+    </>
   );
 };
 
