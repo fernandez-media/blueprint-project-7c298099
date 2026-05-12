@@ -294,6 +294,22 @@ const Home = ({ showDock }: { showDock: boolean }) => {
         .pillar-card:hover .pillar-card-img { transform: scale(1.05); }
         .pillar-card:hover .pillar-card-fp { opacity: 1 !important; }
         .pillar-card:hover .pillar-card-hover-fp { opacity: 0.15 !important; transform: translate(-50%, -50%) scale(1) !important; }
+        .pillar-desc {
+          font-family: 'Inter', sans-serif;
+          font-weight: 300;
+          color: rgba(255,255,255,0.55);
+          text-align: left;
+          margin: 0;
+          font-size: clamp(11px, 0.9vw, 13px);
+          line-height: 1.6;
+          letter-spacing: 0.01em;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        @media (min-width: 768px) {
+          .pillar-desc { -webkit-line-clamp: 4; }
+        }
 
 
         @media (max-width: 767px) {
