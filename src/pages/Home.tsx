@@ -6,7 +6,6 @@ import {
   scrollStaggerCinematic,
   cinematicSlideUp,
 } from "@/lib/scrollAnimations";
-import ProceduralBackgroundWhite from "@/components/ProceduralBackgroundWhite";
 import FooterBackground from "@/components/FooterBackground";
 import FeatureCard from "@/components/FeatureCard";
 import GradualBlur from "@/components/GradualBlur";
