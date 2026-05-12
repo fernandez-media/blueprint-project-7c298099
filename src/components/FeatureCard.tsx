@@ -192,7 +192,7 @@ const FeatureCard = memo(function FeatureCard({
           textAlign: "center",
           gap: 0,
         }
-      : { ...shared, padding: "16px 18px", display: "flex", alignItems: "flex-start", gap: 14 };
+      : { ...shared, padding: "16px 18px", display: "flex", alignItems: "center", gap: 14 };
   }, [isInView, variant, glowActive]);
 
   const hoverHandlers = {
