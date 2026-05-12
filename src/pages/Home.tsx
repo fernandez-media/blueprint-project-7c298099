@@ -558,7 +558,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
 {/* ══════════════════════════════════════════════════════ */}
       {/* ── WHITE ZONE WRAPPER (card emergence over hero black) ── */}
       {/* ══════════════════════════════════════════════════════ */}
-      <div className="home-white-wrapper" style={{ background: "#0a0a0a" }}>
+      <div className="home-white-wrapper" style={{ background: "#FFFFFF" }}>
       <div className="home-white-section" style={{
         position: "relative",
         borderTopLeftRadius: window.innerWidth < 768 ? 24 : 32,
@@ -566,7 +566,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
         marginTop: window.innerWidth < 768 ? -24 : -32,
         overflow: "hidden",
         zIndex: 2,
-        background: "#0a0a0a",
+        background: "#FFFFFF",
       }}>
       <div ref={aboutRef} style={{ position: "relative", zIndex: 1 }}>
         <div className="about-section-new" style={{
