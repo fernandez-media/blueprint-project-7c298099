@@ -702,8 +702,8 @@ const Home = ({ showDock }: { showDock: boolean }) => {
         }}>
           {[
             { name: "Blueprint Lab", color: "#1A6BFF", rgba: "26,107,255", img: slider1, route: "/lab", desc: "Blueprint Lab is a private performance laboratory designed through structured training systems: precision, coaching, and an elite atmosphere." },
-            { name: "Hack Bar", color: "#FF3B3B", rgba: "255,59,59", img: slider2, route: "/hackbar", desc: "Nutrition engineered for performance. Every meal is a signal to your body." },
-            { name: "Reset", color: "#22C55E", rgba: "34,197,94", img: slider3, video: "/videos/reset-card.mp4", route: "/reset", desc: "Strategic recovery. Optimized sleep, restoration, and rebuilding protocols." },
+            { name: "Hack Bar", color: "#FF3B3B", rgba: "255,59,59", img: slider2, route: "/hackbar", desc: "HackBar is Blueprint's performance nutrition division, built to fuel the body with clean, high-quality meals and functional nutrition designed to maximize recovery, energy, mental clarity, and long-term health without inflammation or artificial ingredients." },
+            { name: "Reset", color: "#22C55E", rgba: "34,197,94", img: slider3, video: "/videos/reset-card.mp4", route: "/reset", desc: "Blueprint Reset is the recovery and biohacking division of Project Blueprint, focused on restoring the body and nervous system through advanced recovery protocols, mobility, cold therapy, heat therapy, and performance optimization." },
           ].map((item) => (
             <motion.div
               variants={cinematicSlideUp}
