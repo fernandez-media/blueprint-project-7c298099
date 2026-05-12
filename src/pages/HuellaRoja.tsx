@@ -32,9 +32,9 @@ const FingerprintSVG = ({ color, size = 48 }: { color: string; size?: number }) 
 );
 
 const HUELLAS = [
-  { color: "#1A6BFF", glow: "rgba(26,107,255,0.7)", route: "/huella-azul", tooltip: "TRAINING" },
-  { color: "#FF3B3B", glow: "rgba(255,59,59,0.7)", route: "/huella-roja", tooltip: "NUTRITION" },
-  { color: "#22C55E", glow: "rgba(34,197,94,0.7)", route: "/huella-verde", tooltip: "RECOVERY" },
+  { color: "#1A6BFF", glow: "rgba(26,107,255,0.7)", route: "/lab", tooltip: "TRAINING" },
+  { color: "#FF3B3B", glow: "rgba(255,59,59,0.7)", route: "/hackbar", tooltip: "NUTRITION" },
+  { color: "#22C55E", glow: "rgba(34,197,94,0.7)", route: "/reset", tooltip: "RECOVERY" },
 ];
 
 /* ── Corner Brackets ── */
@@ -349,7 +349,7 @@ const HuellaRoja = ({ showDock }: { showDock: boolean }) => {
       <SEO
         title="Hack Bar"
         description="Hack Bar: meals designed to fuel performance, recovery and body composition with real ingredients. Nutrition engineering at Blueprint Project, Santurce PR."
-        canonical="https://blueprintproject.com/huella-roja"
+        canonical="https://blueprintproject.com/hackbar"
       />
       <motion.div
         initial={{ opacity: 0 }}

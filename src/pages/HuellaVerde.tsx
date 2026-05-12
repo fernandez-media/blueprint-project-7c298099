@@ -38,9 +38,9 @@ const FingerprintSVG = ({ color = "#22C55E", size = 20 }: { color?: string; size
 
 /* ── Dock (top of page) ── */
 const HUELLAS = [
-  { label: "Training", color: "#1A6BFF", path: "/huella-azul" },
-  { label: "Hack Bar", color: "#FF3B3B", path: "/huella-roja" },
-  { label: "Reset", color: "#22C55E", path: "/huella-verde" },
+  { label: "Training", color: "#1A6BFF", path: "/lab" },
+  { label: "Hack Bar", color: "#FF3B3B", path: "/hackbar" },
+  { label: "Reset", color: "#22C55E", path: "/reset" },
 ];
 
 const Dock = ({ show }: { show: boolean }) => {
@@ -70,7 +70,7 @@ const Dock = ({ show }: { show: boolean }) => {
         <button
           key={h.path}
           onClick={() => {
-            if (h.path === "/huella-verde") {
+            if (h.path === "/reset") {
               window.scrollTo({ top: 0, behavior: "smooth" });
             } else {
               navigate(h.path);
@@ -82,13 +82,13 @@ const Dock = ({ show }: { show: boolean }) => {
             border: "none",
             cursor: "pointer",
             padding: 4,
-            opacity: h.path === "/huella-verde" ? 1 : 0.5,
+            opacity: h.path === "/reset" ? 1 : 0.5,
             transition: "opacity 0.3s ease, transform 0.3s ease",
-            transform: h.path === "/huella-verde" ? "scale(1.15)" : "scale(1)",
+            transform: h.path === "/reset" ? "scale(1.15)" : "scale(1)",
           }}
           onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "scale(1.15)"; }}
           onMouseLeave={(e) => {
-            if (h.path !== "/huella-verde") { e.currentTarget.style.opacity = "0.5"; e.currentTarget.style.transform = "scale(1)"; }
+            if (h.path !== "/reset") { e.currentTarget.style.opacity = "0.5"; e.currentTarget.style.transform = "scale(1)"; }
           }}
         >
           <FingerprintSVG color={h.color} size={22} />
@@ -160,7 +160,7 @@ const HuellaVerde = ({ showDock = true }: HuellaVerdeProps) => {
       <SEO
         title="Reset"
         description="Reset: sauna, cold therapy and mobility systems to restore at a higher level. Recovery protocols at Blueprint Project, Santurce PR."
-        canonical="https://blueprintproject.com/huella-verde"
+        canonical="https://blueprintproject.com/reset"
       />
       <div className="verde-animated-bg" aria-hidden="true" />
       <style>{`
