@@ -1841,6 +1841,34 @@ html[data-no-motion="true"] *::after {
 
 .bio-row-value {
   flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bio-row-value--slots {
+  gap: 8px;
+}
+
+.bio-full-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  border-radius: 4px;
+  font-family: "Orbitron", monospace;
+  font-size: 10px;
+  color: #ef4444;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+  animation: bio-full-pulse 2s ease-in-out infinite;
+}
+
+@keyframes bio-full-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(239, 68, 68, 0.2); }
+  50% { opacity: 0.85; box-shadow: 0 0 12px rgba(239, 68, 68, 0.35); }
 }
 
 .bio-phone-value {
