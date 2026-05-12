@@ -628,17 +628,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                 {
                   title: "NUTRITION ENGINEERING",
                   desc: "Meals designed to fuel performance, recovery and body composition with real ingredients.",
-                  icon: (
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF3B3B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      {/* Plate with fork & knife */}
-                      <circle cx="12" cy="12" r="9" />
-                      <circle cx="12" cy="12" r="6" />
-                      <line x1="8" y1="3" x2="8" y2="7" />
-                      <line x1="10" y1="3" x2="10" y2="7" />
-                      <line x1="9" y1="7" x2="9" y2="11" />
-                      <line x1="15" y1="3" x2="15" y2="11" />
-                    </svg>
-                  ),
+                  icon: <Utensils size={16} color="#FF3B3B" strokeWidth={2} />,
                 },
                 {
                   title: "RECOVERY RESET",
