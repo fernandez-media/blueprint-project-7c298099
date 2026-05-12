@@ -914,7 +914,7 @@ const HuellaRoja = ({ showDock }: { showDock: boolean }) => {
                 { label: "METABOLIC RATE", value: "1,847 kcal", active: false },
                 { label: "PROTEIN INTAKE", value: "142g", active: false },
                 { label: "HYDRATION LVL", value: "94.2%", active: false },
-                { label: "SLOTS", value: "45 / 60", active: true },
+                { label: "SLOTS", value: "42 / 50", active: true },
               ].map((item) => (
                 <div key={item.label} style={{
                   padding: "16px",
