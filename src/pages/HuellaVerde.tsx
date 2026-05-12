@@ -158,9 +158,13 @@ const HuellaVerde = ({ showDock = true }: HuellaVerdeProps) => {
   return (
     <>
       <SEO
-        title="Reset"
-        description="Reset: sauna, cold therapy and mobility systems to restore at a higher level. Recovery protocols at Blueprint Project, Santurce PR."
+        title="Blueprint Reset — Recovery Protocols | Blueprint Project"
+        description="Strategic recovery. Sauna, ice bath, mobility, hyperbaric chamber and adjustments. Optimized recovery protocols to restore at a higher level. Santurce, PR."
         canonical="https://blueprintproject.com/reset"
+        ogTitle="Blueprint Reset — Recovery Protocols"
+        ogDescription="Sauna, ice bath, mobility, hyperbaric chamber. Optimized recovery to restore at a higher level."
+        ogImage="/og-image.png"
+        ogUrl="https://blueprintproject.com/reset"
       />
       <div className="verde-animated-bg" aria-hidden="true" />
       <style>{`
