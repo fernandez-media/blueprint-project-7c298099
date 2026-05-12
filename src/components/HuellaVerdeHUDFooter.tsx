@@ -134,25 +134,20 @@ const HuellaVerdeHUDFooter = () => {
           <span className="corner corner-bl" />
           <span className="corner corner-br" />
 
-          <div
-            style={{
-              width: 80,
-              height: 80,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontFamily: "Orbitron, monospace",
-              fontSize: 22,
-              fontWeight: 600,
-              color: "#22C55E",
-              letterSpacing: "0.05em",
-            }}
-          >
-            50/60
+          <div className="hud-slots-grid" aria-hidden="true">
+            {Array.from({ length: 60 }).map((_, i) => (
+              <span
+                key={i}
+                className={`hud-slot-cell ${i < 50 ? "is-filled" : "is-empty"}`}
+              />
+            ))}
           </div>
 
-          <p className="hud-panel-label">SLOTS</p>
-          <p className="hud-panel-value">50 / 60</p>
+          <p className="hud-panel-label">SLOTS OCCUPIED</p>
+          <p className="hud-panel-value">
+            <span style={{ color: "#22C55E" }}>50</span>
+            <span style={{ color: "rgba(255,255,255,0.35)" }}> / 60</span>
+          </p>
         </div>
 
         {/* Panel 1: DNA Helix */}
