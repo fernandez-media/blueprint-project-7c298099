@@ -690,6 +690,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                 {
                   title: "ELITE TRAINING SYSTEM",
                   desc: "Strength, physique, mobility and real progression through structured coaching.",
+                  rgba: "26,107,255",
                   icon: (
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A6BFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       {/* Dumbbell */}
@@ -704,11 +705,13 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                 {
                   title: "NUTRITION ENGINEERING",
                   desc: "Meals designed to fuel performance, recovery and body composition with real ingredients.",
+                  rgba: "255,59,59",
                   icon: <Utensils size={16} color="#FF3B3B" strokeWidth={2} />,
                 },
                 {
                   title: "RECOVERY RESET",
                   desc: "Sauna, cold therapy and mobility systems to restore at a higher level.",
+                  rgba: "34,197,94",
                   icon: (
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -718,6 +721,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                 {
                   title: "MINDSET UPGRADE",
                   desc: "Discipline, confidence and focus built through education, pressure and consistency.",
+                  rgba: "156,163,175",
                   icon: <BrainCircuit size={16} color="#4B5563" strokeWidth={2} />,
                 },
               ].map((c, i) => (
@@ -727,7 +731,9 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                   icon={c.icon}
                   title={c.title}
                   description={c.desc}
+                  rgba={c.rgba}
                   cascadeIndex={i}
+                  direction="up"
                 />
               ))}
             </motion.div>
