@@ -127,6 +127,44 @@ const HuellaVerdeHUDFooter = () => {
 
       {/* 3 main panels */}
       <div className="hud-panels">
+        {/* Panel 0: Slots */}
+        <div className="hud-panel">
+          <span className="corner corner-tl" />
+          <span className="corner corner-tr" />
+          <span className="corner corner-bl" />
+          <span className="corner corner-br" />
+
+          <svg viewBox="0 0 80 80" aria-hidden="true" style={{ width: 80, height: 80, filter: "drop-shadow(0 0 6px rgba(34,197,94,0.5))" }}>
+            <circle cx="40" cy="40" r="34" fill="none" stroke="rgba(34,197,94,0.18)" strokeWidth="6" />
+            <circle
+              cx="40"
+              cy="40"
+              r="34"
+              fill="none"
+              stroke="#22C55E"
+              strokeWidth="6"
+              strokeLinecap="round"
+              strokeDasharray={`${(50 / 60) * 2 * Math.PI * 34} ${2 * Math.PI * 34}`}
+              transform="rotate(-90 40 40)"
+            />
+            <text
+              x="40"
+              y="44"
+              textAnchor="middle"
+              fontFamily="Orbitron, monospace"
+              fontSize="16"
+              fontWeight={600}
+              fill="#22C55E"
+              style={{ letterSpacing: "0.05em" }}
+            >
+              50/60
+            </text>
+          </svg>
+
+          <p className="hud-panel-label">SLOTS</p>
+          <p className="hud-panel-value">50 / 60</p>
+        </div>
+
         {/* Panel 1: DNA Helix */}
         <div className="hud-panel">
           <span className="corner corner-tl" />
