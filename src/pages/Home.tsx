@@ -1080,7 +1080,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
           </span>
         </div>
         </div>{/* end z-index wrapper */}
-      </div>
+      </footer>
       </LazyMount>
     </motion.main>
   );
