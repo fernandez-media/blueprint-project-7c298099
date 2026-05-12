@@ -261,6 +261,16 @@ const Home = ({ showDock }: { showDock: boolean }) => {
   }
 
   return (
+    <>
+    <SEO
+      title="Blueprint Project — Premium Fitness Club in San Juan, PR"
+      description="Blueprint Project is a premium fitness club in Santurce, San Juan. Training, nutrition, and recovery engineered for human evolution. Three fissures, one system."
+      canonical="https://blueprintproject.com/"
+      ogTitle="Blueprint Project — Premium Fitness Club"
+      ogDescription="Training, nutrition, and recovery engineered for human evolution. Built for those who choose precision over pressure."
+      ogImage="/og-image.png"
+      ogUrl="https://blueprintproject.com/"
+    />
     <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
