@@ -242,12 +242,13 @@ const FeatureCard = memo(function FeatureCard({
     return (
       <motion.div
         ref={cardRef}
-        variants={cinematicSlideUp}
+        variants={variantRef}
         className="feature-card-fx"
         style={{ ...containerStyle, ["--fx-delay" as never]: fxDelay }}
         {...hoverHandlers}
       >
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, width: "100%" }}>
+        {scanLine}
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, width: "100%", position: "relative", zIndex: 1 }}>
           <div
             style={{
               display: "flex",
@@ -279,7 +280,8 @@ const FeatureCard = memo(function FeatureCard({
   }
 
   return (
-    <motion.div ref={cardRef} variants={cinematicSlideUp} style={containerStyle} {...hoverHandlers}>
+    <motion.div ref={cardRef} variants={variantRef} style={containerStyle} {...hoverHandlers}>
+      {scanLine}
       <div
         style={{
           display: "flex",
