@@ -268,14 +268,28 @@ const Home = ({ showDock }: { showDock: boolean }) => {
     io.observe(node);
     return () => io.disconnect();
   }, []);
+  // Honor prefers-reduced-motion: when reduced, slow rotation way down (or stop)
+  // and disable slide/zoom transforms below.
+  const [reducedMotion, setReducedMotion] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(mq.matches);
+    update();
+    mq.addEventListener?.("change", update);
+    return () => mq.removeEventListener?.("change", update);
+  }, []);
   useEffect(() => {
     if (!aboutCarouselVisible) return;
+    // Reduced motion: slow the rotation cadence so changes are calm; the
+    // transform animation is also disabled below — only a gentle opacity fade.
+    const interval = reducedMotion ? 9000 : 4000;
     const id = setInterval(
       () => setCurrentAboutImage((p) => (p + 1) % aboutImages.length),
-      4000
+      interval
     );
     return () => clearInterval(id);
-  }, [aboutCarouselVisible]);
+  }, [aboutCarouselVisible, reducedMotion]);
   useEffect(() => {
     const id = setInterval(
       () => setCurrentLabImage((p) => (p + 1) % labImages.length),
