@@ -137,14 +137,14 @@ const MainLanding = ({ showDock }: { showDock: boolean }) => {
   }
 
   return (
-    <motion.div
+    <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       style={{ backgroundColor: "#000", fontFamily: "'Space Grotesk', sans-serif" }}
     >
       {/* FIXED DOCK NAV */}
-      <div style={{
+      <nav aria-label="Pillars" style={{
         position: 'fixed',
         top: '24px',
         left: '50%',
