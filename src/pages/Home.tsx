@@ -82,7 +82,6 @@ const aboutImages = [
   "/about/about-2.jpg",
   "/about/about-3.jpg",
   "/about/about-4.jpg",
-  "/about/about-5.jpg",
   "/about/about-6.jpg",
 ];
 
