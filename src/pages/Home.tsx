@@ -642,17 +642,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                 {
                   title: "MINDSET UPGRADE",
                   desc: "Discipline, confidence and focus built through education, pressure and consistency.",
-                  icon: (
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      {/* Brain */}
-                      <path d="M9.5 4a3 3 0 0 0-3 3v0a2.5 2.5 0 0 0-1.5 4.5A2.5 2.5 0 0 0 6.5 16 3 3 0 0 0 9.5 19a2.5 2.5 0 0 0 2.5-2.5V5.5A1.5 1.5 0 0 0 10.5 4Z" />
-                      <path d="M14.5 4a3 3 0 0 1 3 3v0a2.5 2.5 0 0 1 1.5 4.5A2.5 2.5 0 0 1 17.5 16a3 3 0 0 1-3 3 2.5 2.5 0 0 1-2.5-2.5V5.5A1.5 1.5 0 0 1 13.5 4Z" />
-                      <path d="M9 9h2" />
-                      <path d="M9 13h2" />
-                      <path d="M13 9h2" />
-                      <path d="M13 13h2" />
-                    </svg>
-                  ),
+                  icon: <BrainCircuit size={16} color="#4B5563" strokeWidth={2} />,
                 },
               ].map((c, i) => (
                 <FeatureCard
