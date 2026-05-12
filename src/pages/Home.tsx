@@ -892,7 +892,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
 
       {/* ── FOOTER (DARK with hands background) — lazy-mounted: defers ~1MB bg image + dock subtree until user scrolls near bottom ── */}
       <LazyMount rootMargin="500px" placeholderHeight="560px">
-      <div className="footer-bg-wrapper" style={{
+      <footer className="footer-bg-wrapper" style={{
         position: "relative" as const,
         backgroundImage: "url('/footer-bg.webp')",
         backgroundSize: "cover",
