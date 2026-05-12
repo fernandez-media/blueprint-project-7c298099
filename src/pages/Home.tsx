@@ -12,6 +12,7 @@ import GradualBlur from "@/components/GradualBlur";
 import HomeLoader from "@/components/HomeLoader";
 import LazyMount from "@/components/LazyMount";
 import SEO from "@/components/SEO";
+import { Dumbbell, Utensils, Activity, BrainCircuit } from "lucide-react";
 
 // ── Loader gate. Plays on every visit to the Home route.
 //    Bypassed automatically when the existing E2E flags are present
