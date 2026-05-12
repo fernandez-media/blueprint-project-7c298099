@@ -229,13 +229,33 @@ const Home = ({ showDock }: { showDock: boolean }) => {
     if (loaderActive) return () => {};
     return attachVideoReadiness(mobileVideoRef.current, setMobileVideoReady);
   }, [loaderActive]);
+  // About carousel: don't auto-rotate until the carousel scrolls into view,
+  // so users always see the first image ("Blueprint is forever") first.
+  const aboutCarouselRef = useRef<HTMLDivElement>(null);
+  const [aboutCarouselVisible, setAboutCarouselVisible] = useState(false);
   useEffect(() => {
+    const node = aboutCarouselRef.current;
+    if (!node) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setAboutCarouselVisible(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!aboutCarouselVisible) return;
     const id = setInterval(
       () => setCurrentAboutImage((p) => (p + 1) % aboutImages.length),
       4000
     );
     return () => clearInterval(id);
-  }, []);
+  }, [aboutCarouselVisible]);
   useEffect(() => {
     const id = setInterval(
       () => setCurrentLabImage((p) => (p + 1) % labImages.length),
