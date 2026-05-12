@@ -188,7 +188,7 @@ const MainLanding = ({ showDock }: { showDock: boolean }) => {
             ))}
           </Dock>
         </div>
-      </div>
+      </nav>
 
       {/* HERO */}
       <section className="hero-section flex flex-col items-center md:items-center" style={{ position: "relative", overflow: "hidden", zIndex: 2 }}>
