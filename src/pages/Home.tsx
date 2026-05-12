@@ -743,7 +743,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
           display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16,
         }}>
           {[
-            { name: "Blueprint Lab", color: "#1A6BFF", rgba: "26,107,255", img: slider1, route: "/huella-azul", desc: "Precision training methodology. Data-driven programming built to forge strength." },
+            { name: "Blueprint Lab", color: "#1A6BFF", rgba: "26,107,255", img: slider1, route: "/huella-azul", desc: "Blueprint Lab is a private performance laboratory designed through structured training systems: precision, coaching, and an elite atmosphere." },
             { name: "Hack Bar", color: "#FF3B3B", rgba: "255,59,59", img: slider2, route: "/huella-roja", desc: "Nutrition engineered for performance. Every meal is a signal to your body." },
             { name: "Reset", color: "#22C55E", rgba: "34,197,94", img: slider3, video: "/videos/reset-card.mp4", route: "/huella-verde", desc: "Strategic recovery. Optimized sleep, restoration, and rebuilding protocols." },
           ].map((item) => (
