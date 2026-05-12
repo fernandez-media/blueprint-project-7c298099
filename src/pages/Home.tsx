@@ -391,19 +391,19 @@ const Home = ({ showDock }: { showDock: boolean }) => {
       <div style={{
         position: "fixed", top: 24, left: "50%", zIndex: 50,
         pointerEvents: "none", display: "flex", justifyContent: "center",
-        opacity: showDock ? 1 : 0,
-        transform: showDock ? "translate(-50%, 0)" : "translate(-50%, -8px)",
-        transition: "opacity 0.9s ease, transform 0.9s ease",
+        transform: "translateX(-50%)",
       }}>
         <div style={{ pointerEvents: showDock ? "all" : "none" }} className="home-dock">
           <Dock>
-            {HUELLAS.map((h) => (
+            {HUELLAS.map((h, i) => (
               <DockIcon key={h.route} onClick={() => navigate(h.route)}>
                 <div style={{
                   display: "flex", alignItems: "center", justifyContent: "center",
                   width: "100%", height: "100%",
                   filter: `drop-shadow(0 0 10px ${h.glow})`,
-                  transition: "transform 0.3s ease, filter 0.3s ease",
+                  opacity: showDock ? 1 : 0,
+                  transform: showDock ? "translateY(0)" : "translateY(-10px)",
+                  transition: `opacity 0.7s ease ${i * 0.18}s, transform 0.7s ease ${i * 0.18}s, filter 0.3s ease`,
                 }}>
                   <FingerprintSVG color={h.color} size={30} />
                 </div>
