@@ -65,8 +65,9 @@ const BiometricTerminalLocation = () => {
 
         <div className="bio-row">
           <span className="bio-row-prefix">SLOTS</span>
-          <span className="bio-row-value">
-            <span className="bio-counter">38</span> / 50
+          <span className="bio-row-value bio-row-value--slots">
+            <span className="bio-counter">60</span> / 60
+            <span className="bio-full-badge">FULL</span>
           </span>
         </div>
       </div>
