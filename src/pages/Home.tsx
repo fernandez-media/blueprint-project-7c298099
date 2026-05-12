@@ -352,19 +352,19 @@ const Home = ({ showDock }: { showDock: boolean }) => {
         }
 
         /* ── HOME HERO FLOATING CARD ── */
-        .home-hero-wrapper { width: 100%; padding: 0 16px; background: #FFFFFF; }
-        .home-hero { border-radius: 24px; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.15); position: relative; }
-        .home-hero::after { content: ''; position: absolute; inset: 0; border-radius: 24px; pointer-events: none; box-shadow: 0 0 40px rgba(255,255,255,0.04) inset; z-index: 1; }
-        .home-white-wrapper { width: 100%; padding: 0 16px; background: #FFFFFF; }
+        .home-hero-wrapper { width: 100%; padding: 0 16px; background: transparent; }
+        .home-hero { border-top-left-radius: 24px; border-top-right-radius: 24px; border-bottom-left-radius: 0; border-bottom-right-radius: 0; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.15); border-bottom: none; position: relative; }
+        .home-hero::after { content: ''; position: absolute; inset: 0; border-top-left-radius: 24px; border-top-right-radius: 24px; pointer-events: none; box-shadow: 0 0 40px rgba(255,255,255,0.04) inset; z-index: 1; }
+        .home-white-wrapper { width: 100%; padding: 0 16px; background: transparent; }
         @media (max-width: 1023px) and (min-width: 768px) {
           .home-hero-wrapper, .home-white-wrapper { padding: 0 12px; }
-          .home-hero { border-radius: 20px; }
-          .home-hero::after { border-radius: 20px; }
+          .home-hero { border-top-left-radius: 20px; border-top-right-radius: 20px; }
+          .home-hero::after { border-top-left-radius: 20px; border-top-right-radius: 20px; }
         }
         @media (max-width: 767px) {
           .home-hero-wrapper, .home-white-wrapper { padding: 0 8px; }
-          .home-hero { border-radius: 16px; }
-          .home-hero::after { border-radius: 16px; }
+          .home-hero { border-top-left-radius: 16px; border-top-right-radius: 16px; }
+          .home-hero::after { border-top-left-radius: 16px; border-top-right-radius: 16px; }
         }
       `}</style>
 
@@ -558,7 +558,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
 {/* ══════════════════════════════════════════════════════ */}
       {/* ── WHITE ZONE WRAPPER (card emergence over hero black) ── */}
       {/* ══════════════════════════════════════════════════════ */}
-      <div className="home-white-wrapper" style={{ background: "#FFFFFF" }}>
+      <div className="home-white-wrapper">
       <div className="home-white-section" style={{
         position: "relative",
         overflow: "hidden",
