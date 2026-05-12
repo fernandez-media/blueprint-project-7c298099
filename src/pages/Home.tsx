@@ -709,7 +709,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
 
       {/* ── PROGRAMS SECTION (WHITE) — lazy-mounted: defers 3 pillar cards (image rotators + autoplay video) until user scrolls near ── */}
       <LazyMount rootMargin="400px" placeholderHeight="640px">
-      <div className="programs-section" style={{ padding: "56px 7%", position: "relative", zIndex: 1 }}>
+      <div className="programs-section" style={{ padding: "56px 7% 64px", position: "relative", zIndex: 1 }}>
         <motion.h2 {...scrollRevealCinematic} style={{
           fontFamily: "'Michroma', sans-serif",
           fontSize: "clamp(20px, 2.5vw, 32px)", color: "#000",
