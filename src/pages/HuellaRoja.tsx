@@ -351,7 +351,7 @@ const HuellaRoja = ({ showDock }: { showDock: boolean }) => {
         description="Hack Bar: meals designed to fuel performance, recovery and body composition with real ingredients. Nutrition engineering at Blueprint Project, Santurce PR."
         canonical="https://blueprintproject.com/hackbar"
       />
-      <motion.div
+      <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
