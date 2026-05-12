@@ -358,13 +358,13 @@ const Home = ({ showDock }: { showDock: boolean }) => {
         .home-white-wrapper { width: 100%; padding: 0 16px; background: transparent; }
         @media (max-width: 1023px) and (min-width: 768px) {
           .home-hero-wrapper, .home-white-wrapper { padding: 0 12px; }
-          .home-hero { border-radius: 20px; }
-          .home-hero::after { border-radius: 20px; }
+          .home-hero { border-top-left-radius: 20px; border-top-right-radius: 20px; }
+          .home-hero::after { border-top-left-radius: 20px; border-top-right-radius: 20px; }
         }
         @media (max-width: 767px) {
           .home-hero-wrapper, .home-white-wrapper { padding: 0 8px; }
-          .home-hero { border-radius: 16px; }
-          .home-hero::after { border-radius: 16px; }
+          .home-hero { border-top-left-radius: 16px; border-top-right-radius: 16px; }
+          .home-hero::after { border-top-left-radius: 16px; border-top-right-radius: 16px; }
         }
       `}</style>
 
