@@ -63,9 +63,9 @@ const SectionDivider = () => (
 
 /* ── Constants ── */
 const HUELLAS = [
-  { color: "#1A6BFF", glow: "rgba(26,107,255,0.7)", route: "/huella-azul", tooltip: "ENTRENAMIENTO" },
-  { color: "#FF3B3B", glow: "rgba(255,59,59,0.7)", route: "/huella-roja", tooltip: "NUTRICIÓN" },
-  { color: "#22C55E", glow: "rgba(34,197,94,0.7)", route: "/huella-verde", tooltip: "RECUPERACIÓN" },
+  { color: "#1A6BFF", glow: "rgba(26,107,255,0.7)", route: "/lab", tooltip: "ENTRENAMIENTO" },
+  { color: "#FF3B3B", glow: "rgba(255,59,59,0.7)", route: "/hackbar", tooltip: "NUTRICIÓN" },
+  { color: "#22C55E", glow: "rgba(34,197,94,0.7)", route: "/reset", tooltip: "RECUPERACIÓN" },
 ];
 
 
@@ -260,7 +260,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
   }
 
   return (
-    <motion.div
+    <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -742,9 +742,9 @@ const Home = ({ showDock }: { showDock: boolean }) => {
           display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16,
         }}>
           {[
-            { name: "Blueprint Lab", color: "#1A6BFF", rgba: "26,107,255", img: slider1, route: "/huella-azul", desc: "Blueprint Lab is a private performance laboratory designed through structured training systems: precision, coaching, and an elite atmosphere." },
-            { name: "Hack Bar", color: "#FF3B3B", rgba: "255,59,59", img: slider2, route: "/huella-roja", desc: "Nutrition engineered for performance. Every meal is a signal to your body." },
-            { name: "Reset", color: "#22C55E", rgba: "34,197,94", img: slider3, video: "/videos/reset-card.mp4", route: "/huella-verde", desc: "Strategic recovery. Optimized sleep, restoration, and rebuilding protocols." },
+            { name: "Blueprint Lab", color: "#1A6BFF", rgba: "26,107,255", img: slider1, route: "/lab", desc: "Blueprint Lab is a private performance laboratory designed through structured training systems: precision, coaching, and an elite atmosphere." },
+            { name: "Hack Bar", color: "#FF3B3B", rgba: "255,59,59", img: slider2, route: "/hackbar", desc: "Nutrition engineered for performance. Every meal is a signal to your body." },
+            { name: "Reset", color: "#22C55E", rgba: "34,197,94", img: slider3, video: "/videos/reset-card.mp4", route: "/reset", desc: "Strategic recovery. Optimized sleep, restoration, and rebuilding protocols." },
           ].map((item) => (
             <motion.div
               variants={cinematicSlideUp}
@@ -892,7 +892,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
 
       {/* ── FOOTER (DARK with hands background) — lazy-mounted: defers ~1MB bg image + dock subtree until user scrolls near bottom ── */}
       <LazyMount rootMargin="500px" placeholderHeight="560px">
-      <div className="footer-bg-wrapper" style={{
+      <footer className="footer-bg-wrapper" style={{
         position: "relative" as const,
         backgroundImage: "url('/footer-bg.webp')",
         backgroundSize: "cover",
@@ -1080,9 +1080,9 @@ const Home = ({ showDock }: { showDock: boolean }) => {
           </span>
         </div>
         </div>{/* end z-index wrapper */}
-      </div>
+      </footer>
       </LazyMount>
-    </motion.div>
+    </motion.main>
   );
 };
 

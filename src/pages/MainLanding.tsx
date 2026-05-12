@@ -58,7 +58,7 @@ const HUELLAS = [
   {
     color: "#1A6BFF",
     glow: "rgba(26,107,255,0.8)",
-    route: "/huella-azul",
+    route: "/lab",
     sectionId: "huella-azul",
     tooltip: "ENTRENAMIENTO",
     tag: "BLUEPRINT PROJECT",
@@ -72,7 +72,7 @@ const HUELLAS = [
   {
     color: "#FF3B3B",
     glow: "rgba(255,59,59,0.8)",
-    route: "/huella-roja",
+    route: "/hackbar",
     sectionId: "huella-roja",
     tooltip: "NUTRICIÓN",
     tag: "HACK BAR",
@@ -86,7 +86,7 @@ const HUELLAS = [
   {
     color: "#22C55E",
     glow: "rgba(34,197,94,0.8)",
-    route: "/huella-verde",
+    route: "/reset",
     sectionId: "huella-verde",
     tooltip: "RECUPERACIÓN",
     tag: "RESET",
@@ -137,14 +137,14 @@ const MainLanding = ({ showDock }: { showDock: boolean }) => {
   }
 
   return (
-    <motion.div
+    <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       style={{ backgroundColor: "#000", fontFamily: "'Space Grotesk', sans-serif" }}
     >
       {/* FIXED DOCK NAV */}
-      <div style={{
+      <nav aria-label="Pillars" style={{
         position: 'fixed',
         top: '24px',
         left: '50%',
@@ -188,7 +188,7 @@ const MainLanding = ({ showDock }: { showDock: boolean }) => {
             ))}
           </Dock>
         </div>
-      </div>
+      </nav>
 
       {/* HERO */}
       <section className="hero-section flex flex-col items-center md:items-center" style={{ position: "relative", overflow: "hidden", zIndex: 2 }}>
@@ -592,7 +592,7 @@ const MainLanding = ({ showDock }: { showDock: boolean }) => {
         }
       `}</style>
       <BackToHomeButton />
-    </motion.div>
+    </motion.main>
   );
 };
 
