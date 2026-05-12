@@ -267,3 +267,70 @@ export const scrollStaggerCinematic = {
   viewport: VIEWPORT_CONFIG,
   variants: cinematicStaggerContainer,
 };
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FEATURE CARD CINEMATIC PRESETS
+   Used by the 4 about-section feature cards. Stronger entrance than the
+   generic cinematicSlideUp, with directional variants so cards in a 2x2
+   grid can fly in from their respective corners.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+const FEATURE_OFFSET = SMALL ? 70 : 40;
+const FEATURE_DURATION = SMALL ? 0.75 : 0.9;
+const FEATURE_BLUR = "blur(10px)";
+
+export const cinematicFeatureUp: Variants = REDUCE ? STATIC_VARIANT : {
+  hidden: { opacity: 0, y: FEATURE_OFFSET, scale: 0.92, filter: FEATURE_BLUR },
+  visible: {
+    opacity: 1, y: 0, scale: 1, filter: "blur(0px)",
+    transition: { duration: FEATURE_DURATION, ease: CINE_EASE },
+  },
+};
+
+export const cinematicFeatureLeft: Variants = REDUCE ? STATIC_VARIANT : {
+  hidden: { opacity: 0, x: -FEATURE_OFFSET, y: FEATURE_OFFSET * 0.4, scale: 0.92, filter: FEATURE_BLUR },
+  visible: {
+    opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)",
+    transition: { duration: FEATURE_DURATION, ease: CINE_EASE },
+  },
+};
+
+export const cinematicFeatureRight: Variants = REDUCE ? STATIC_VARIANT : {
+  hidden: { opacity: 0, x: FEATURE_OFFSET, y: FEATURE_OFFSET * 0.4, scale: 0.92, filter: FEATURE_BLUR },
+  visible: {
+    opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)",
+    transition: { duration: FEATURE_DURATION, ease: CINE_EASE },
+  },
+};
+
+export const featureVariantByDirection = (dir: "up" | "left" | "right"): Variants => {
+  if (dir === "left") return cinematicFeatureLeft;
+  if (dir === "right") return cinematicFeatureRight;
+  return cinematicFeatureUp;
+};
+
+/* Stagger container for the features grid — slightly slower step than
+   the generic cinematic stagger so the cascade reads as a sequence. */
+const FEATURE_STAGGER_STEP = SMALL ? 0.09 : 0.13;
+const FEATURE_DELAY_CHILDREN = SMALL ? 0.05 : 0.08;
+
+export const cinematicFeatureContainer: Variants = REDUCE ? STATIC_CONTAINER : {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: FEATURE_STAGGER_STEP,
+      delayChildren: FEATURE_DELAY_CHILDREN,
+    },
+  },
+};
+
+export const scrollStaggerCinematicFeatures = {
+  initial: "hidden" as const,
+  whileInView: "visible" as const,
+  viewport: VIEWPORT_CONFIG,
+  variants: cinematicFeatureContainer,
+};
+
+export const FEATURE_REDUCED_MOTION = REDUCE;
+export const FEATURE_SMALL_SCREEN = SMALL;
