@@ -1,6 +1,6 @@
 import { memo, useEffect, useMemo, useRef, useState, ReactNode, CSSProperties } from "react";
 import { motion } from "framer-motion";
-import { cinematicSlideUp } from "@/lib/scrollAnimations";
+import { featureVariantByDirection, FEATURE_SMALL_SCREEN } from "@/lib/scrollAnimations";
 
 interface FeatureCardProps {
   icon: ReactNode;
@@ -11,6 +11,8 @@ interface FeatureCardProps {
   rgba?: string;
   /** Index in the cascade sequence (0..n). When provided, card receives a one-shot scroll-in glow at index*200ms. */
   cascadeIndex?: number;
+  /** Direction the card flies in from. Defaults to "up". */
+  direction?: "up" | "left" | "right";
 }
 
 /* ── Static styles (module-scope, never re-created) ── */
