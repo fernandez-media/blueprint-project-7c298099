@@ -352,7 +352,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
         }
 
         /* ── HOME HERO FLOATING CARD ── */
-        .home-hero-wrapper { width: 100%; padding: 0 16px; background: #0a0a0a; }
+        .home-hero-wrapper { width: 100%; padding: 0 16px; background: #FFFFFF; }
         .home-hero { border-radius: 24px; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.15); position: relative; }
         .home-hero::after { content: ''; position: absolute; inset: 0; border-radius: 24px; pointer-events: none; box-shadow: 0 0 40px rgba(255,255,255,0.04) inset; z-index: 1; }
         .home-white-wrapper { width: 100%; padding: 0 16px; background: #FFFFFF; }
@@ -561,9 +561,6 @@ const Home = ({ showDock }: { showDock: boolean }) => {
       <div className="home-white-wrapper" style={{ background: "#FFFFFF" }}>
       <div className="home-white-section" style={{
         position: "relative",
-        borderTopLeftRadius: window.innerWidth < 768 ? 24 : 32,
-        borderTopRightRadius: window.innerWidth < 768 ? 24 : 32,
-        marginTop: window.innerWidth < 768 ? -24 : -32,
         overflow: "hidden",
         zIndex: 2,
         background: "#FFFFFF",
