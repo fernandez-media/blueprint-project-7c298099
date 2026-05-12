@@ -211,7 +211,29 @@ const FeatureCard = memo(function FeatureCard({
         {...hoverHandlers}
       >
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, width: "100%" }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{icon}</div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+              width: 56,
+              height: 56,
+              borderRadius: 14,
+              transition: `all ${PREFERS_REDUCED_MOTION ? "0ms" : "400ms"} ${GLOW_EASE}`,
+              background: isHovered ? "rgba(0, 0, 0, 0.03)" : "transparent",
+              boxShadow: isHovered ? "inset 0 0 0 1px rgba(0,0,0,0.06)" : "inset 0 0 0 1px transparent",
+            }}
+          >
+            <div
+              style={{
+                transition: `transform ${PREFERS_REDUCED_MOTION ? "0ms" : "400ms"} ${GLOW_EASE}`,
+                transform: isHovered ? "scale(1.1)" : "scale(1)",
+              }}
+            >
+              {icon}
+            </div>
+          </div>
           <div style={TITLE_DESKTOP_STYLE}>{title}</div>
           <div style={{ ...DESC_DESKTOP_STYLE, marginTop: -6 }}>{description}</div>
         </div>
@@ -221,7 +243,29 @@ const FeatureCard = memo(function FeatureCard({
 
   return (
     <motion.div ref={cardRef} variants={cinematicSlideUp} style={containerStyle} {...hoverHandlers}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{icon}</div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+          width: 44,
+          height: 44,
+          borderRadius: 12,
+          transition: `all ${PREFERS_REDUCED_MOTION ? "0ms" : "400ms"} ${GLOW_EASE}`,
+          background: isHovered ? "rgba(0, 0, 0, 0.03)" : "transparent",
+          boxShadow: isHovered ? "inset 0 0 0 1px rgba(0,0,0,0.06)" : "inset 0 0 0 1px transparent",
+        }}
+      >
+        <div
+          style={{
+            transition: `transform ${PREFERS_REDUCED_MOTION ? "0ms" : "400ms"} ${GLOW_EASE}`,
+            transform: isHovered ? "scale(1.1)" : "scale(1)",
+          }}
+        >
+          {icon}
+        </div>
+      </div>
       <div style={TEXT_COL_MOBILE_STYLE}>
         <span style={TITLE_MOBILE_STYLE}>{title}</span>
         <p style={DESC_MOBILE_STYLE}>{description}</p>
