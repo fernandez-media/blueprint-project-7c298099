@@ -592,7 +592,7 @@ const MainLanding = ({ showDock }: { showDock: boolean }) => {
         }
       `}</style>
       <BackToHomeButton />
-    </motion.div>
+    </motion.main>
   );
 };
 
