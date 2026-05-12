@@ -108,12 +108,16 @@ const FeatureCard = memo(function FeatureCard({
   variant,
   rgba,
   cascadeIndex,
+  direction = "up",
 }: FeatureCardProps) {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const [isInView, setIsInView] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [cascadeGlow, setCascadeGlow] = useState(false);
+  const [scanActive, setScanActive] = useState(false);
   const cascadeFiredRef = useRef(false);
+  const variantRef = useMemo(() => featureVariantByDirection(direction), [direction]);
+  const scanDuration = FEATURE_SMALL_SCREEN ? 600 : 900;
 
   // Sustained in-view observer (existing behavior)
   useEffect(() => {
