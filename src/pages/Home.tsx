@@ -12,6 +12,7 @@ import GradualBlur from "@/components/GradualBlur";
 import HomeLoader from "@/components/HomeLoader";
 import LazyMount from "@/components/LazyMount";
 import SEO from "@/components/SEO";
+import { Dumbbell, Utensils, Activity, BrainCircuit } from "lucide-react";
 
 // ── Loader gate. Plays on every visit to the Home route.
 //    Bypassed automatically when the existing E2E flags are present
@@ -574,58 +575,25 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                   title: "Elite Training System",
                   desc: "Strength, physique, mobility and real progression through structured coaching.",
                   rgba: "26,107,255",
-                  icon: (
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1A6BFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      {/* Dumbbell */}
-                      <rect x="2" y="8" width="2.5" height="8" rx="0.6" />
-                      <rect x="4.5" y="10" width="1.8" height="4" rx="0.4" />
-                      <line x1="6.3" y1="12" x2="17.7" y2="12" />
-                      <rect x="17.7" y="10" width="1.8" height="4" rx="0.4" />
-                      <rect x="19.5" y="8" width="2.5" height="8" rx="0.6" />
-                    </svg>
-                  ),
+                  icon: <Dumbbell size={40} color="#1A6BFF" strokeWidth={2} />,
                 },
                 {
                   title: "Nutrition Engineering",
                   desc: "Meals designed to fuel performance, recovery and body composition with real ingredients.",
                   rgba: "255,59,59",
-                  icon: (
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF3B3B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      {/* Plate with fork & knife */}
-                      <circle cx="12" cy="12" r="9" />
-                      <circle cx="12" cy="12" r="6" />
-                      <line x1="8" y1="3" x2="8" y2="7" />
-                      <line x1="10" y1="3" x2="10" y2="7" />
-                      <line x1="9" y1="7" x2="9" y2="11" />
-                      <line x1="15" y1="3" x2="15" y2="11" />
-                    </svg>
-                  ),
+                  icon: <Utensils size={40} color="#FF3B3B" strokeWidth={2} />,
                 },
                 {
                   title: "Recovery Reset",
                   desc: "Sauna, cold therapy and mobility systems to restore at a higher level.",
                   rgba: "34,197,94",
-                  icon: (
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                    </svg>
-                  ),
+                  icon: <Activity size={40} color="#4ade80" strokeWidth={2} />,
                 },
                 {
                   title: "Mindset Upgrade",
                   desc: "Discipline, confidence and focus built through education, pressure and consistency.",
                   rgba: "156,163,175",
-                  icon: (
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      {/* Brain */}
-                      <path d="M9.5 4a3 3 0 0 0-3 3v0a2.5 2.5 0 0 0-1.5 4.5A2.5 2.5 0 0 0 6.5 16 3 3 0 0 0 9.5 19a2.5 2.5 0 0 0 2.5-2.5V5.5A1.5 1.5 0 0 0 10.5 4Z" />
-                      <path d="M14.5 4a3 3 0 0 1 3 3v0a2.5 2.5 0 0 1 1.5 4.5A2.5 2.5 0 0 1 17.5 16a3 3 0 0 1-3 3 2.5 2.5 0 0 1-2.5-2.5V5.5A1.5 1.5 0 0 1 13.5 4Z" />
-                      <path d="M9 9h2" />
-                      <path d="M9 13h2" />
-                      <path d="M13 9h2" />
-                      <path d="M13 13h2" />
-                    </svg>
-                  ),
+                  icon: <BrainCircuit size={40} color="#4B5563" strokeWidth={2} />,
                 },
               ].map((step, i) => (
                 <FeatureCard
@@ -660,17 +628,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                 {
                   title: "NUTRITION ENGINEERING",
                   desc: "Meals designed to fuel performance, recovery and body composition with real ingredients.",
-                  icon: (
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF3B3B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      {/* Plate with fork & knife */}
-                      <circle cx="12" cy="12" r="9" />
-                      <circle cx="12" cy="12" r="6" />
-                      <line x1="8" y1="3" x2="8" y2="7" />
-                      <line x1="10" y1="3" x2="10" y2="7" />
-                      <line x1="9" y1="7" x2="9" y2="11" />
-                      <line x1="15" y1="3" x2="15" y2="11" />
-                    </svg>
-                  ),
+                  icon: <Utensils size={16} color="#FF3B3B" strokeWidth={2} />,
                 },
                 {
                   title: "RECOVERY RESET",
@@ -684,17 +642,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                 {
                   title: "MINDSET UPGRADE",
                   desc: "Discipline, confidence and focus built through education, pressure and consistency.",
-                  icon: (
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      {/* Brain */}
-                      <path d="M9.5 4a3 3 0 0 0-3 3v0a2.5 2.5 0 0 0-1.5 4.5A2.5 2.5 0 0 0 6.5 16 3 3 0 0 0 9.5 19a2.5 2.5 0 0 0 2.5-2.5V5.5A1.5 1.5 0 0 0 10.5 4Z" />
-                      <path d="M14.5 4a3 3 0 0 1 3 3v0a2.5 2.5 0 0 1 1.5 4.5A2.5 2.5 0 0 1 17.5 16a3 3 0 0 1-3 3 2.5 2.5 0 0 1-2.5-2.5V5.5A1.5 1.5 0 0 1 13.5 4Z" />
-                      <path d="M9 9h2" />
-                      <path d="M9 13h2" />
-                      <path d="M13 9h2" />
-                      <path d="M13 13h2" />
-                    </svg>
-                  ),
+                  icon: <BrainCircuit size={16} color="#4B5563" strokeWidth={2} />,
                 },
               ].map((c, i) => (
                 <FeatureCard

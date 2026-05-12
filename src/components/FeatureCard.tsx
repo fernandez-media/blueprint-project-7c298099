@@ -195,23 +195,6 @@ const FeatureCard = memo(function FeatureCard({
       : { ...shared, padding: "16px 18px", display: "flex", alignItems: "flex-start", gap: 14 };
   }, [isInView, variant, glowActive]);
 
-  const isMindset = rgba === "156,163,175";
-
-  const desktopIconBoxStyle = useMemo<CSSProperties>(
-    () => ({
-      width: 64,
-      height: 64,
-      borderRadius: 14,
-      background: isMindset ? "#E5E7EB" : `rgba(${rgba}, 0.08)`,
-      border: isMindset ? "1px solid rgba(0,0,0,0.08)" : `1px solid rgba(${rgba}, 0.12)`,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      flexShrink: 0,
-    }),
-    [rgba, isMindset]
-  );
-
   const hoverHandlers = {
     onMouseEnter: () => setIsHovered(true),
     onMouseLeave: () => setIsHovered(false),
@@ -227,10 +210,10 @@ const FeatureCard = memo(function FeatureCard({
         style={{ ...containerStyle, ["--fx-delay" as never]: fxDelay }}
         {...hoverHandlers}
       >
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16, width: "100%" }}>
-          <div style={desktopIconBoxStyle}>{icon}</div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, width: "100%" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{icon}</div>
           <div style={TITLE_DESKTOP_STYLE}>{title}</div>
-          <div style={{ ...DESC_DESKTOP_STYLE, marginTop: -8 }}>{description}</div>
+          <div style={{ ...DESC_DESKTOP_STYLE, marginTop: -6 }}>{description}</div>
         </div>
       </motion.div>
     );
