@@ -179,6 +179,7 @@ const FeatureCard = memo(function FeatureCard({
     const transitionDur = PREFERS_REDUCED_MOTION ? "0ms" : "400ms";
     const shared: CSSProperties = {
       position: "relative",
+      overflow: "hidden",
       background: "rgba(255, 255, 255, 0.65)",
       backdropFilter: "blur(20px) saturate(180%)",
       WebkitBackdropFilter: "blur(20px) saturate(180%)",
@@ -209,6 +210,32 @@ const FeatureCard = memo(function FeatureCard({
     onMouseEnter: () => setIsHovered(true),
     onMouseLeave: () => setIsHovered(false),
   };
+
+  // Scan-line sweep overlay — cinematic tech reveal that crosses the card
+  // diagonally once when the cascade fires. GPU-accelerated transform only.
+  const tintColor = rgba ? `rgba(${rgba}, 0.55)` : "rgba(255, 255, 255, 0.7)";
+  const scanLine = !PREFERS_REDUCED_MOTION && (
+    <div
+      aria-hidden
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "60%",
+        height: "100%",
+        pointerEvents: "none",
+        background: `linear-gradient(115deg, transparent 0%, transparent 35%, ${tintColor} 50%, transparent 65%, transparent 100%)`,
+        filter: "blur(8px)",
+        opacity: scanActive ? 1 : 0,
+        transform: scanActive ? "translateX(220%) skewX(-12deg)" : "translateX(-120%) skewX(-12deg)",
+        transition: scanActive
+          ? `transform ${scanDuration}ms cubic-bezier(0.22, 1, 0.36, 1), opacity ${scanDuration}ms ease-out`
+          : "none",
+        mixBlendMode: "screen",
+        zIndex: 2,
+      }}
+    />
+  );
 
   if (variant === "desktop") {
     const fxDelay = cascadeIndex != null ? `${cascadeIndex * 0.6}s` : "0s";
