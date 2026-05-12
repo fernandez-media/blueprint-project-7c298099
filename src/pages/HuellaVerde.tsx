@@ -974,7 +974,7 @@ const HuellaVerde = ({ showDock = true }: HuellaVerdeProps) => {
         {/* ── HUD LAB FOOTER ── */}
         <HuellaVerdeHUDFooter />
         <BackToHomeButton />
-      </motion.div>
+      </motion.main>
     </>
   );
 };
