@@ -243,7 +243,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
           io.disconnect();
         }
       },
-      { threshold: 0.35 }
+      { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
     );
     io.observe(node);
     return () => io.disconnect();
