@@ -236,14 +236,34 @@ const Home = ({ showDock }: { showDock: boolean }) => {
   useEffect(() => {
     const node = aboutCarouselRef.current;
     if (!node) return;
+    // Debug mode: enable with ?debug=carousel in URL.
+    const DEBUG =
+      typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).get("debug") === "carousel";
+    const threshold = 0.1;
+    const rootMargin = "0px 0px -10% 0px";
+    if (DEBUG) {
+      console.log("[carousel] IO attached", { threshold, rootMargin, node });
+    }
     const io = new IntersectionObserver(
       (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setAboutCarouselVisible(true);
-          io.disconnect();
-        }
+        entries.forEach((e) => {
+          if (DEBUG) {
+            console.log("[carousel] IO fire", {
+              isIntersecting: e.isIntersecting,
+              ratio: e.intersectionRatio.toFixed(3),
+              threshold,
+              rootMargin,
+            });
+          }
+          if (e.isIntersecting) {
+            if (DEBUG) console.log("[carousel] -> visible, starting rotation");
+            setAboutCarouselVisible(true);
+            io.disconnect();
+          }
+        });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
+      { threshold, rootMargin }
     );
     io.observe(node);
     return () => io.disconnect();
@@ -698,22 +718,34 @@ const Home = ({ showDock }: { showDock: boolean }) => {
             borderRadius: 16, overflow: "hidden",
             position: "relative",
           }}>
-            {aboutImages.map((src, index) => (
-              <img
-                key={src}
-                src={src}
-                alt={`Blueprint gym ${index + 1}`}
-                loading="lazy"
-                decoding="async"
-                style={{
-                  position: "absolute", top: 0, left: 0,
-                  width: "100%", height: "100%",
-                  objectFit: "cover", objectPosition: "center",
-                  transition: "opacity 1s ease-in-out",
-                  opacity: index === currentAboutImage ? 1 : 0,
-                }}
-              />
-            ))}
+            {aboutImages.map((src, index) => {
+              const isActive = index === currentAboutImage;
+              const total = aboutImages.length;
+              // Determine slide direction relative to the active image so the
+              // outgoing image slides out the opposite side from the incoming.
+              const diff = (index - currentAboutImage + total) % total;
+              const isNext = diff === 1;
+              const offset = isActive ? 0 : isNext ? 24 : -24; // px slide
+              return (
+                <img
+                  key={src}
+                  src={src}
+                  alt={`Blueprint gym ${index + 1}`}
+                  loading="lazy"
+                  decoding="async"
+                  style={{
+                    position: "absolute", top: 0, left: 0,
+                    width: "100%", height: "100%",
+                    objectFit: "cover", objectPosition: "center",
+                    transition:
+                      "opacity 900ms cubic-bezier(0.4, 0, 0.2, 1), transform 1100ms cubic-bezier(0.4, 0, 0.2, 1)",
+                    opacity: isActive ? 1 : 0,
+                    transform: `translate3d(${offset}px, 0, 0) scale(${isActive ? 1 : 1.02})`,
+                    willChange: "opacity, transform",
+                  }}
+                />
+              );
+            })}
           </div>
           </div>
         </div>
