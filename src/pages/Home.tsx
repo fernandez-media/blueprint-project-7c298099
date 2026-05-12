@@ -389,9 +389,11 @@ const Home = ({ showDock }: { showDock: boolean }) => {
 
       {/* ── A: DOCK ── */}
       <div style={{
-        position: "fixed", top: 24, left: "50%", transform: "translateX(-50%)", zIndex: 50,
+        position: "fixed", top: 24, left: "50%", zIndex: 50,
         pointerEvents: "none", display: "flex", justifyContent: "center",
-        opacity: showDock ? 1 : 0, transition: "opacity 0.8s ease",
+        opacity: showDock ? 1 : 0,
+        transform: showDock ? "translate(-50%, 0)" : "translate(-50%, -8px)",
+        transition: "opacity 0.9s ease, transform 0.9s ease",
       }}>
         <div style={{ pointerEvents: showDock ? "all" : "none" }} className="home-dock">
           <Dock>
