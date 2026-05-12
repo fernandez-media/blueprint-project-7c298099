@@ -155,7 +155,11 @@ const FeatureCard = memo(function FeatureCard({
         observer.disconnect();
         onTimer = window.setTimeout(() => {
           setCascadeGlow(true);
-          offTimer = window.setTimeout(() => setCascadeGlow(false), 700);
+          setScanActive(true);
+          offTimer = window.setTimeout(() => {
+            setCascadeGlow(false);
+            setScanActive(false);
+          }, Math.max(700, scanDuration));
         }, cascadeIndex * 200);
       },
       { threshold: 0.2 }
