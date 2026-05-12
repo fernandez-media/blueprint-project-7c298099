@@ -135,18 +135,18 @@ const HuellaVerdeHUDFooter = () => {
           <span className="corner corner-br" />
 
           <div className="hud-slots-grid" aria-hidden="true">
-            {Array.from({ length: 60 }).map((_, i) => (
+            {Array.from({ length: 50 }).map((_, i) => (
               <span
                 key={i}
-                className={`hud-slot-cell ${i < 50 ? "is-filled" : "is-empty"}`}
+                className={`hud-slot-cell ${i < 44 ? "is-filled" : "is-empty"}`}
               />
             ))}
           </div>
 
           <p className="hud-panel-label">SLOTS OCCUPIED</p>
           <p className="hud-panel-value">
-            <span style={{ color: "#22C55E" }}>50</span>
-            <span style={{ color: "rgba(255,255,255,0.35)" }}> / 60</span>
+            <span style={{ color: "#22C55E" }}>44</span>
+            <span style={{ color: "rgba(255,255,255,0.35)" }}> / 50</span>
           </p>
         </div>
 
