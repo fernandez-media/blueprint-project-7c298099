@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import {
   scrollRevealCinematic,
   scrollStaggerCinematic,
+  scrollStaggerCinematicFeatures,
   cinematicSlideUp,
 } from "@/lib/scrollAnimations";
 import FooterBackground from "@/components/FooterBackground";
@@ -639,31 +640,35 @@ const Home = ({ showDock }: { showDock: boolean }) => {
           {/* Left — Cards grid */}
           <div style={{ display: "flex", flexDirection: "column" as const, minHeight: 0 }}>
             {/* Features (DESKTOP) — Apple-style frosted white cards */}
-            <motion.div {...scrollStaggerCinematic} className="about-features-desktop about-features-grid-2x2" style={{ position: "relative", flexGrow: 1, minHeight: 0 }}>
+            <motion.div {...scrollStaggerCinematicFeatures} className="about-features-desktop about-features-grid-2x2" style={{ position: "relative", flexGrow: 1, minHeight: 0 }}>
               {[
                 {
                   title: "Elite Training System",
                   desc: "Strength, physique, mobility and real progression through structured coaching.",
                   rgba: "26,107,255",
                   icon: <Dumbbell size={40} color="#1A6BFF" strokeWidth={2} />,
+                  direction: "left" as const,
                 },
                 {
                   title: "Nutrition Engineering",
                   desc: "Meals designed to fuel performance, recovery and body composition with real ingredients.",
                   rgba: "255,59,59",
                   icon: <Utensils size={40} color="#FF3B3B" strokeWidth={2} />,
+                  direction: "right" as const,
                 },
                 {
                   title: "Recovery Reset",
                   desc: "Sauna, cold therapy and mobility systems to restore at a higher level.",
                   rgba: "34,197,94",
                   icon: <Activity size={40} color="#4ade80" strokeWidth={2} />,
+                  direction: "left" as const,
                 },
                 {
                   title: "Mindset Upgrade",
                   desc: "Discipline, confidence and focus built through education, pressure and consistency.",
                   rgba: "156,163,175",
                   icon: <BrainCircuit size={40} color="#4B5563" strokeWidth={2} />,
+                  direction: "right" as const,
                 },
               ].map((step, i) => (
                 <FeatureCard
@@ -674,16 +679,18 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                   description={step.desc}
                   rgba={step.rgba}
                   cascadeIndex={i}
+                  direction={step.direction}
                 />
               ))}
             </motion.div>
 
             {/* Mobile features — Apple-style frosted white cards */}
-            <motion.div {...scrollStaggerCinematic} className="about-features-mobile" style={{ display: "none", flexDirection: "column", padding: "0 16px", gap: 14 }}>
+            <motion.div {...scrollStaggerCinematicFeatures} className="about-features-mobile" style={{ display: "none", flexDirection: "column", padding: "0 16px", gap: 14 }}>
               {[
                 {
                   title: "ELITE TRAINING SYSTEM",
                   desc: "Strength, physique, mobility and real progression through structured coaching.",
+                  rgba: "26,107,255",
                   icon: (
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A6BFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       {/* Dumbbell */}
@@ -698,11 +705,13 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                 {
                   title: "NUTRITION ENGINEERING",
                   desc: "Meals designed to fuel performance, recovery and body composition with real ingredients.",
+                  rgba: "255,59,59",
                   icon: <Utensils size={16} color="#FF3B3B" strokeWidth={2} />,
                 },
                 {
                   title: "RECOVERY RESET",
                   desc: "Sauna, cold therapy and mobility systems to restore at a higher level.",
+                  rgba: "34,197,94",
                   icon: (
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -712,6 +721,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                 {
                   title: "MINDSET UPGRADE",
                   desc: "Discipline, confidence and focus built through education, pressure and consistency.",
+                  rgba: "156,163,175",
                   icon: <BrainCircuit size={16} color="#4B5563" strokeWidth={2} />,
                 },
               ].map((c, i) => (
@@ -721,7 +731,9 @@ const Home = ({ showDock }: { showDock: boolean }) => {
                   icon={c.icon}
                   title={c.title}
                   description={c.desc}
+                  rgba={c.rgba}
                   cascadeIndex={i}
+                  direction="up"
                 />
               ))}
             </motion.div>

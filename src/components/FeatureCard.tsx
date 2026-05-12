@@ -1,6 +1,6 @@
 import { memo, useEffect, useMemo, useRef, useState, ReactNode, CSSProperties } from "react";
 import { motion } from "framer-motion";
-import { cinematicSlideUp } from "@/lib/scrollAnimations";
+import { featureVariantByDirection, FEATURE_SMALL_SCREEN } from "@/lib/scrollAnimations";
 
 interface FeatureCardProps {
   icon: ReactNode;
@@ -11,6 +11,8 @@ interface FeatureCardProps {
   rgba?: string;
   /** Index in the cascade sequence (0..n). When provided, card receives a one-shot scroll-in glow at index*200ms. */
   cascadeIndex?: number;
+  /** Direction the card flies in from. Defaults to "up". */
+  direction?: "up" | "left" | "right";
 }
 
 /* ── Static styles (module-scope, never re-created) ── */
@@ -106,12 +108,16 @@ const FeatureCard = memo(function FeatureCard({
   variant,
   rgba,
   cascadeIndex,
+  direction = "up",
 }: FeatureCardProps) {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const [isInView, setIsInView] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [cascadeGlow, setCascadeGlow] = useState(false);
+  const [scanActive, setScanActive] = useState(false);
   const cascadeFiredRef = useRef(false);
+  const variantRef = useMemo(() => featureVariantByDirection(direction), [direction]);
+  const scanDuration = FEATURE_SMALL_SCREEN ? 600 : 900;
 
   // Sustained in-view observer (existing behavior)
   useEffect(() => {
@@ -149,7 +155,11 @@ const FeatureCard = memo(function FeatureCard({
         observer.disconnect();
         onTimer = window.setTimeout(() => {
           setCascadeGlow(true);
-          offTimer = window.setTimeout(() => setCascadeGlow(false), 700);
+          setScanActive(true);
+          offTimer = window.setTimeout(() => {
+            setCascadeGlow(false);
+            setScanActive(false);
+          }, Math.max(700, scanDuration));
         }, cascadeIndex * 200);
       },
       { threshold: 0.2 }
@@ -169,6 +179,7 @@ const FeatureCard = memo(function FeatureCard({
     const transitionDur = PREFERS_REDUCED_MOTION ? "0ms" : "400ms";
     const shared: CSSProperties = {
       position: "relative",
+      overflow: "hidden",
       background: "rgba(255, 255, 255, 0.65)",
       backdropFilter: "blur(20px) saturate(180%)",
       WebkitBackdropFilter: "blur(20px) saturate(180%)",
@@ -200,17 +211,44 @@ const FeatureCard = memo(function FeatureCard({
     onMouseLeave: () => setIsHovered(false),
   };
 
+  // Scan-line sweep overlay — cinematic tech reveal that crosses the card
+  // diagonally once when the cascade fires. GPU-accelerated transform only.
+  const tintColor = rgba ? `rgba(${rgba}, 0.55)` : "rgba(255, 255, 255, 0.7)";
+  const scanLine = !PREFERS_REDUCED_MOTION && (
+    <div
+      aria-hidden
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "60%",
+        height: "100%",
+        pointerEvents: "none",
+        background: `linear-gradient(115deg, transparent 0%, transparent 35%, ${tintColor} 50%, transparent 65%, transparent 100%)`,
+        filter: "blur(8px)",
+        opacity: scanActive ? 1 : 0,
+        transform: scanActive ? "translateX(220%) skewX(-12deg)" : "translateX(-120%) skewX(-12deg)",
+        transition: scanActive
+          ? `transform ${scanDuration}ms cubic-bezier(0.22, 1, 0.36, 1), opacity ${scanDuration}ms ease-out`
+          : "none",
+        mixBlendMode: "screen",
+        zIndex: 2,
+      }}
+    />
+  );
+
   if (variant === "desktop") {
     const fxDelay = cascadeIndex != null ? `${cascadeIndex * 0.6}s` : "0s";
     return (
       <motion.div
         ref={cardRef}
-        variants={cinematicSlideUp}
+        variants={variantRef}
         className="feature-card-fx"
         style={{ ...containerStyle, ["--fx-delay" as never]: fxDelay }}
         {...hoverHandlers}
       >
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, width: "100%" }}>
+        {scanLine}
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, width: "100%", position: "relative", zIndex: 1 }}>
           <div
             style={{
               display: "flex",
@@ -242,7 +280,8 @@ const FeatureCard = memo(function FeatureCard({
   }
 
   return (
-    <motion.div ref={cardRef} variants={cinematicSlideUp} style={containerStyle} {...hoverHandlers}>
+    <motion.div ref={cardRef} variants={variantRef} style={containerStyle} {...hoverHandlers}>
+      {scanLine}
       <div
         style={{
           display: "flex",
