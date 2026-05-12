@@ -294,7 +294,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      style={{ fontFamily: "'Inter', sans-serif", position: "relative", overflowX: "hidden" }}
+      style={{ fontFamily: "'Inter', sans-serif", position: "relative", overflowX: "hidden", background: "#F2F2F2" }}
     >
       {/* ── KEYFRAMES ── */}
       <style>{`
