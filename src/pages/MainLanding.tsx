@@ -138,6 +138,16 @@ const MainLanding = ({ showDock }: { showDock: boolean }) => {
   }
 
   return (
+    <>
+    <SEO
+      title="Blueprint Lab — Performance Training | Blueprint Project"
+      description="Precision training methodology. Data-driven programming built to forge strength, physique, and real progression through structured coaching in Santurce, PR."
+      canonical="https://blueprintproject.com/lab"
+      ogTitle="Blueprint Lab — Performance Training"
+      ogDescription="Precision training methodology. Data-driven programming built to forge strength."
+      ogImage="/og-image.png"
+      ogUrl="https://blueprintproject.com/lab"
+    />
     <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
