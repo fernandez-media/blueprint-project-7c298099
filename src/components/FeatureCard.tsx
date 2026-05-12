@@ -221,7 +221,7 @@ const FeatureCard = memo(function FeatureCard({
 
   return (
     <motion.div ref={cardRef} variants={cinematicSlideUp} style={containerStyle} {...hoverHandlers}>
-      <div style={ICON_BOX_MOBILE_STYLE}>{icon}</div>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{icon}</div>
       <div style={TEXT_COL_MOBILE_STYLE}>
         <span style={TITLE_MOBILE_STYLE}>{title}</span>
         <p style={DESC_MOBILE_STYLE}>{description}</p>
