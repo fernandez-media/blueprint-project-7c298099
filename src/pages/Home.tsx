@@ -565,7 +565,11 @@ const Home = ({ showDock }: { showDock: boolean }) => {
         position: "relative",
         borderTopLeftRadius: window.innerWidth < 768 ? 24 : 32,
         borderTopRightRadius: window.innerWidth < 768 ? 24 : 32,
+        borderBottomLeftRadius: window.innerWidth < 768 ? 24 : 32,
+        borderBottomRightRadius: window.innerWidth < 768 ? 24 : 32,
         marginTop: window.innerWidth < 768 ? -24 : -32,
+        marginBottom: window.innerWidth < 768 ? 16 : 24,
+        overflow: "hidden",
         zIndex: 2,
       }}>
       <div ref={aboutRef} style={{ position: "relative", zIndex: 1 }}>
