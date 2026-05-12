@@ -347,9 +347,13 @@ const HuellaRoja = ({ showDock }: { showDock: boolean }) => {
   return (
     <>
       <SEO
-        title="Hack Bar"
-        description="Hack Bar: meals designed to fuel performance, recovery and body composition with real ingredients. Nutrition engineering at Blueprint Project, Santurce PR."
+        title="Blueprint HackBar — Nutrition Engineering | Blueprint Project"
+        description="Nutrition engineered for performance. Meals designed to fuel performance, recovery, and body composition with real ingredients. Santurce, San Juan."
         canonical="https://blueprintproject.com/hackbar"
+        ogTitle="Blueprint HackBar — Nutrition Engineering"
+        ogDescription="Meals engineered for performance, recovery, and body composition."
+        ogImage="/og-image.png"
+        ogUrl="https://blueprintproject.com/hackbar"
       />
       <motion.main
         initial={{ opacity: 0 }}
