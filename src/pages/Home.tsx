@@ -685,7 +685,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
             </motion.div>
 
             {/* Mobile features — Apple-style frosted white cards */}
-            <motion.div {...scrollStaggerCinematic} className="about-features-mobile" style={{ display: "none", flexDirection: "column", padding: "0 16px", gap: 14 }}>
+            <motion.div {...scrollStaggerCinematicFeatures} className="about-features-mobile" style={{ display: "none", flexDirection: "column", padding: "0 16px", gap: 14 }}>
               {[
                 {
                   title: "ELITE TRAINING SYSTEM",
