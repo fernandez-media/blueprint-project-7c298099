@@ -54,7 +54,7 @@ const App = () => {
 
   useEffect(() => {
     if (showDock) return;
-    const timer = setTimeout(() => setShowDock(true), 100);
+    const timer = setTimeout(() => setShowDock(true), 1200);
     return () => clearTimeout(timer);
   }, [showDock]);
 
