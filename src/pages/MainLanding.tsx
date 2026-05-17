@@ -59,7 +59,7 @@ const HUELLAS = [
   {
     color: "#1A6BFF",
     glow: "rgba(26,107,255,0.8)",
-    route: "/lab",
+    route: "/blueprint-lab",
     sectionId: "huella-azul",
     tooltip: "ENTRENAMIENTO",
     tag: "BLUEPRINT PROJECT",
@@ -142,11 +142,11 @@ const MainLanding = ({ showDock }: { showDock: boolean }) => {
     <SEO
       title="Blueprint Lab — Performance Training | Blueprint Project"
       description="Precision training methodology. Data-driven programming built to forge strength, physique, and real progression through structured coaching in Santurce, PR."
-      canonical="https://projectblueprintdata.com/lab"
+      canonical="https://projectblueprintdata.com/blueprint-lab"
       ogTitle="Blueprint Lab — Performance Training"
       ogDescription="Precision training methodology. Data-driven programming built to forge strength."
       ogImage="https://projectblueprintdata.com/og-image.jpg"
-      ogUrl="https://projectblueprintdata.com/lab"
+      ogUrl="https://projectblueprintdata.com/blueprint-lab"
     />
     <motion.main
       initial={{ opacity: 0 }}

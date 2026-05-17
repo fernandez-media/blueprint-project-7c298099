@@ -38,7 +38,7 @@ const FingerprintSVG = ({ color = "#22C55E", size = 20 }: { color?: string; size
 
 /* ── Dock (top of page) ── */
 const HUELLAS = [
-  { label: "Training", color: "#1A6BFF", path: "/lab" },
+  { label: "Training", color: "#1A6BFF", path: "/blueprint-lab" },
   { label: "Hack Bar", color: "#FF3B3B", path: "/hackbar" },
   { label: "Reset", color: "#22C55E", path: "/reset" },
 ];

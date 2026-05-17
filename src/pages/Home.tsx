@@ -66,7 +66,7 @@ const SectionDivider = () => (
 
 /* ── Constants ── */
 const HUELLAS = [
-  { color: "#1A6BFF", glow: "rgba(26,107,255,0.7)", route: "/lab", tooltip: "ENTRENAMIENTO" },
+  { color: "#1A6BFF", glow: "rgba(26,107,255,0.7)", route: "/blueprint-lab", tooltip: "ENTRENAMIENTO" },
   { color: "#FF3B3B", glow: "rgba(255,59,59,0.7)", route: "/hackbar", tooltip: "NUTRICIÓN" },
   { color: "#22C55E", glow: "rgba(34,197,94,0.7)", route: "/reset", tooltip: "RECUPERACIÓN" },
 ];
@@ -751,7 +751,7 @@ const Home = ({ showDock }: { showDock: boolean }) => {
           display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16,
         }}>
           {[
-            { name: "Blueprint Lab", color: "#1A6BFF", rgba: "26,107,255", img: slider1, route: "/lab", desc: "Blueprint Lab is a private performance laboratory designed through structured training systems: precision, coaching, and an elite atmosphere." },
+            { name: "Blueprint Lab", color: "#1A6BFF", rgba: "26,107,255", img: slider1, route: "/blueprint-lab", desc: "Blueprint Lab is a private performance laboratory designed through structured training systems: precision, coaching, and an elite atmosphere." },
             { name: "Hack Bar", color: "#FF3B3B", rgba: "255,59,59", img: slider2, route: "/hackbar", desc: "HackBar is Blueprint's performance nutrition division, built to fuel the body with clean, high-quality meals and functional nutrition designed to maximize recovery, energy, mental clarity, and long-term health without inflammation or artificial ingredients." },
             { name: "Reset", color: "#22C55E", rgba: "34,197,94", img: slider3, video: "/videos/reset-card.mp4", route: "/reset", desc: "Blueprint Reset is the recovery and biohacking division of Project Blueprint, focused on restoring the body and nervous system through advanced recovery protocols, mobility, cold therapy, heat therapy, and performance optimization." },
           ].map((item) => (
