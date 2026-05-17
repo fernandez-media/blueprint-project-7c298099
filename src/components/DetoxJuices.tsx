@@ -2,14 +2,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { scrollRevealCinematic } from "@/lib/scrollAnimations";
 
-type Juice = { name: string; ingredients: string[] };
+type Juice = { name: string; benefits: string[] };
 type Ritual = {
   id: string;
   number: string;
   name: string;
   tagline: string;
   color: string;
-  juices: [Juice, Juice];
+  juices: Juice[];
 };
 
 const RITUALS: Ritual[] = [
@@ -22,11 +22,36 @@ const RITUALS: Ritual[] = [
     juices: [
       {
         name: "SUNRISE DRIVE",
-        ingredients: ["Orange", "Carrot", "Turmeric", "Ginger", "Lemon", "Lime"],
+        benefits: [
+          "Natural energy support",
+          "Immune system support",
+          "Metabolism activation",
+          "Digestive stimulation",
+          "Anti-inflammatory support",
+          "Hydration & vitamin C boost",
+        ],
       },
       {
         name: "GOLDEN RUSH",
-        ingredients: ["Orange", "Pineapple", "Carrot", "Turmeric", "Ginger"],
+        benefits: [
+          "Fast natural energy",
+          "Digestive enzyme support",
+          "Liver & detox support",
+          "Anti-inflammatory recovery",
+          "Immune reinforcement",
+          "Antioxidant protection",
+        ],
+      },
+      {
+        name: "SOLAR LIFT",
+        benefits: [
+          "Electrolyte replenishment",
+          "Deep hydration",
+          "Smooth sustained energy",
+          "Recovery support",
+          "Metabolic balance",
+          "Cellular hydration",
+        ],
       },
     ],
   },
@@ -39,28 +64,35 @@ const RITUALS: Ritual[] = [
     juices: [
       {
         name: "QUIET FLOW",
-        ingredients: [
-          "Green Apple",
-          "Cucumber",
-          "Spinach",
-          "Celery",
-          "Green Grapes",
-          "Lemon",
-          "Lime",
-          "Ginger",
+        benefits: [
+          "Deep hydration",
+          "Gentle detox support",
+          "Digestive balance",
+          "Mineral replenishment",
+          "Stable clean energy",
+          "Supports circulation",
         ],
       },
       {
         name: "PURE STATE",
-        ingredients: [
-          "Romaine",
-          "Cucumber",
-          "Green Apple",
-          "Green Grapes",
-          "Lime",
-          "Mint",
-          "Lemon",
-          "Ginger",
+        benefits: [
+          "Nervous system calming",
+          "Cooling digestive support",
+          "Alkalizing hydration",
+          "Bloating reduction support",
+          "Refreshing mineral intake",
+          "Detox pathway support",
+        ],
+      },
+      {
+        name: "CLEAR FIELD",
+        benefits: [
+          "Liver detox support",
+          "Antioxidant-rich nutrition",
+          "Immune support",
+          "Digestive stimulation",
+          "Micronutrient replenishment",
+          "Supports metabolic regulation",
         ],
       },
     ],
@@ -74,28 +106,38 @@ const RITUALS: Ritual[] = [
     juices: [
       {
         name: "CRIMSON WAVE",
-        ingredients: [
-          "Watermelon",
-          "Strawberry",
-          "Lemon",
-          "Lime",
-          "Ginger",
+        benefits: [
+          "Hydration recovery",
+          "Circulation support",
+          "Skin & collagen support",
+          "Anti-inflammatory recovery",
+          "Antioxidant protection",
+          "Refreshing electrolyte support",
         ],
       },
       {
         name: "IRON FLOW",
-        ingredients: [
-          "Beet",
-          "Red Apple",
-          "Strawberry",
-          "Lemon",
-          "Lime",
-          "Ginger",
+        benefits: [
+          "Nitric oxide support",
+          "Improved circulation",
+          "Exercise performance support",
+          "Oxygen delivery support",
+          "Recovery enhancement",
+          "Endurance support",
+        ],
+      },
+      {
+        name: "RUBY REVIVAL",
+        benefits: [
+          "Powerful antioxidant support",
+          "Cellular recovery",
+          "Immune resilience",
+          "Skin vitality support",
+          "Anti-inflammatory protection",
+          "Cardiovascular support",
         ],
       },
     ],
-  },
-];
 
 const PACKS = [
   { qty: "3", label: "Juices", price: "$15" },
