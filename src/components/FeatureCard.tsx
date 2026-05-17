@@ -95,6 +95,10 @@ const DESC_MOBILE_STYLE: CSSProperties = {
   color: "rgba(0,0,0,0.6)",
   margin: "4px 0 0 0",
   textAlign: "center",
+  display: "-webkit-box",
+  WebkitLineClamp: 2,
+  WebkitBoxOrient: "vertical",
+  overflow: "hidden",
 };
 
 /**
