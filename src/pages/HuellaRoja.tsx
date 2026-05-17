@@ -16,6 +16,7 @@ import ElectricBorder from "@/components/ElectricBorder";
 import BackToHomeButton from "@/components/BackToHomeButton";
 import GradualBlur from "@/components/GradualBlur";
 import HackbarMenu from "@/components/HackbarMenu";
+import DetoxJuices from "@/components/DetoxJuices";
 
 import heroHackbarDesktop from "@/assets/hero-hackbar-desktop.jpg?preset=responsive";
 
