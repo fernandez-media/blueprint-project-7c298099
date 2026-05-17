@@ -8,9 +8,9 @@
     <meta name="theme-color" content="#0a0a0a" />
     <meta name="color-scheme" content="dark" />
     
-    <title>Blueprint Project — Built for Human Evolution | Premium Gym Santurce, San Juan PR</title>
-    <meta name="title" content="Blueprint Project — Built for Human Evolution | Premium Gym Santurce, San Juan PR" />
-    <meta name="description" content="Blueprint Project is a premium fitness club in Santurce, San Juan, Puerto Rico. Elite training systems, nutrition engineering, and recovery protocols designed for human evolution. Located at 1951 Calle Loíza." />
+    <title>Blueprint Project — Premium Gym in Santurce, San Juan PR</title>
+    <meta name="title" content="Blueprint Project — Premium Gym in Santurce, San Juan PR" />
+    <meta name="description" content="Premium fitness club in Santurce, San Juan PR. Elite training, nutrition engineering, and recovery protocols. 1951 Calle Loíza." />
     <meta name="keywords" content="gimnasio Santurce, gym San Juan PR, premium fitness Puerto Rico, personal trainer Santurce, boutique gym Puerto Rico, fitness club Calle Loíza, premium gym PR, Blueprint Project, recovery protocols, nutrition engineering" />
     <meta name="author" content="Blueprint Project" />
     <meta name="robots" content="index, follow" />
@@ -20,13 +20,13 @@
     <meta name="geo.position" content="18.4307;-66.0563" />
     <meta name="ICBM" content="18.4307, -66.0563" />
     
-    <link rel="canonical" href="https://blueprintproject.com" />
+    <link rel="canonical" href="/" />
     
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://blueprintproject.com" />
+    <meta property="og:url" content="/" />
     <meta property="og:title" content="Blueprint Project — Built for Human Evolution" />
     <meta property="og:description" content="Premium fitness club in Santurce, San Juan PR. Elite training systems, nutrition engineering, and recovery protocols designed for human evolution." />
-    <meta property="og:image" content="https://blueprintproject.com/og-image.jpg" />
+    <meta property="og:image" content="https://projectblueprintdata.com/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Blueprint Project — Premium Gym in Santurce, Puerto Rico" />
@@ -35,10 +35,10 @@
     <meta property="og:site_name" content="Blueprint Project" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://blueprintproject.com" />
+    <meta name="twitter:url" content="https://projectblueprintdata.com" />
     <meta name="twitter:title" content="Blueprint Project — Built for Human Evolution" />
     <meta name="twitter:description" content="Premium fitness club in Santurce, San Juan PR. Elite training, nutrition engineering, and recovery protocols. Built for human evolution." />
-    <meta name="twitter:image" content="https://blueprintproject.com/og-image.jpg" />
+    <meta name="twitter:image" content="https://projectblueprintdata.com/og-image.jpg" />
     <meta name="twitter:image:alt" content="Blueprint Project — Premium Gym in Santurce, Puerto Rico" />
     
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -65,13 +65,13 @@
     {
       "@context": "https://schema.org",
       "@type": "HealthClub",
-      "@id": "https://blueprintproject.com/#localbusiness",
+      "@id": "https://projectblueprintdata.com/#localbusiness",
       "name": "Blueprint Project",
       "alternateName": "Blueprint Gym",
       "description": "Premium fitness club in Santurce, San Juan, Puerto Rico. Elite training systems, nutrition engineering, and recovery protocols designed for human evolution.",
-      "url": "https://blueprintproject.com",
+      "url": "https://projectblueprintdata.com",
       "telephone": "+1-939-273-5708",
-      "image": "https://blueprintproject.com/og-image.jpg",
+      "image": "https://projectblueprintdata.com/og-image.jpg",
       "priceRange": "$$$",
       "address": {
         "@type": "PostalAddress",
@@ -86,23 +86,58 @@
         "latitude": 18.4307,
         "longitude": -66.0563
       },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "05:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday","Sunday"],
+          "opens": "07:00",
+          "closes": "18:00"
+        }
+      ],
       "sameAs": [
         "https://instagram.com/proyectoblueprint"
       ],
-      "areaServed": {
-        "@type": "City",
-        "name": "San Juan",
-        "containedInPlace": {
-          "@type": "AdministrativeArea",
-          "name": "Puerto Rico"
-        }
-      },
       "amenityFeature": [
         {"@type": "LocationFeatureSpecification", "name": "Strength Training"},
         {"@type": "LocationFeatureSpecification", "name": "Nutrition Coaching"},
         {"@type": "LocationFeatureSpecification", "name": "Recovery Protocols"},
         {"@type": "LocationFeatureSpecification", "name": "Sauna"},
         {"@type": "LocationFeatureSpecification", "name": "Cold Therapy"}
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Product",
+          "name": "Essential Membership",
+          "description": "12 guided training sessions per month. Ideal for a consistent 3x/week routine at Blueprint Project.",
+          "brand": {"@type": "Brand", "name": "Blueprint Project"},
+          "offers": {"@type": "Offer", "price": "480", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://projectblueprintdata.com/"}
+        },
+        {
+          "@type": "Product",
+          "name": "Active Membership",
+          "description": "16 guided training sessions per month. Train 4x/week for more sessions and faster results.",
+          "brand": {"@type": "Brand", "name": "Blueprint Project"},
+          "offers": {"@type": "Offer", "price": "560", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://projectblueprintdata.com/"}
+        },
+        {
+          "@type": "Product",
+          "name": "All In Membership",
+          "description": "20 guided training sessions per month. Full commitment — train 5x/week at Blueprint Project.",
+          "brand": {"@type": "Brand", "name": "Blueprint Project"},
+          "offers": {"@type": "Offer", "price": "600", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://projectblueprintdata.com/"}
+        }
       ]
     }
     </script>
