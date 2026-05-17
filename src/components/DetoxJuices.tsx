@@ -594,13 +594,14 @@ const DetoxJuices = () => {
                       <span className="dxj-juice-dot" />
                       <h3 className="dxj-juice-name">{j.name}</h3>
                     </div>
-                    <div className="dxj-ingredients">
-                      {j.ingredients.map((ing) => (
-                        <span key={ing} className="dxj-ing">
-                          {ing}
-                        </span>
+                    <ul className="dxj-benefits">
+                      {j.benefits.map((b) => (
+                        <li key={b} className="dxj-benefit">
+                          <span className="dxj-benefit-mark" aria-hidden />
+                          <span>{b}</span>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 ))}
               </div>
