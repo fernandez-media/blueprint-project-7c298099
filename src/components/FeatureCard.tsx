@@ -259,29 +259,6 @@ const FeatureCard = memo(function FeatureCard({
   return (
     <motion.div ref={cardRef} variants={variantRef} style={containerStyle} {...hoverHandlers}>
       {scanLine}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexShrink: 0,
-          width: 44,
-          height: 44,
-          borderRadius: 12,
-          transition: `all ${PREFERS_REDUCED_MOTION ? "0ms" : "400ms"} ${GLOW_EASE}`,
-          background: isHovered ? "rgba(0, 0, 0, 0.03)" : "transparent",
-          boxShadow: isHovered ? "inset 0 0 0 1px rgba(0,0,0,0.06)" : "inset 0 0 0 1px transparent",
-        }}
-      >
-        <div
-          style={{
-            transition: `transform ${PREFERS_REDUCED_MOTION ? "0ms" : "400ms"} ${GLOW_EASE}`,
-            transform: isHovered ? "scale(1.1)" : "scale(1)",
-          }}
-        >
-          {icon}
-        </div>
-      </div>
       <div style={TEXT_COL_MOBILE_STYLE}>
         <span style={TITLE_MOBILE_STYLE}>{title}</span>
         <p style={DESC_MOBILE_STYLE}>{description}</p>
