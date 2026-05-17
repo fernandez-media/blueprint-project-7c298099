@@ -615,16 +615,9 @@ const HuellaRoja = ({ showDock }: { showDock: boolean }) => {
         <motion.p {...scrollRevealGlow} style={{ fontFamily: "'Michroma', sans-serif", fontSize: "clamp(16px, 2vw, 24px)", color: "#FFFFFF", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 32, textAlign: "center", width: "100%" }}>
           FUEL YOUR SYSTEM
         </motion.p>
-        <div className="hr-fuel-grid" style={{ display: "flex", gap: 20 }}>
+        <div className="hr-fuel-grid" style={{ display: "flex", gap: 20, justifyContent: "center" }}>
           <FuelCard
             index={0}
-            name="SUPPLEMENTS"
-            desc=""
-            items={["Hydration Boost", "Focus Stack", "Recovery Mix"]}
-            image="/hackbar/supplements.jpg"
-          />
-          <FuelCard
-            index={1}
             name="MEAL PREPS"
             desc=""
             items={["Weekly Plans", "Performance / Shred / Gain", "QR Traceability"]}
@@ -632,6 +625,8 @@ const HuellaRoja = ({ showDock }: { showDock: boolean }) => {
           />
         </div>
       </motion.section>
+
+      <HackbarMenu />
 
       {/* ═══ SECTION C: HACKBAR STATION ═══ */}
       <motion.section
