@@ -240,7 +240,7 @@ const HackbarMenu = () => {
         .hbm-title {
           margin: 0;
           font-family: 'Michroma', sans-serif;
-          font-size: clamp(18px, 7vw, 60px);
+          font-size: clamp(16px, 6vw, 56px);
           line-height: 1;
           color: #fff;
           letter-spacing: 0.01em;
