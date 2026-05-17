@@ -48,6 +48,7 @@ const AnimatedRoutes = ({ showDock }: AnimatedRoutesProps) => {
           <Route path="/hackbar" element={<PageWrapper><HuellaRoja showDock={showDock} /></PageWrapper>} />
           <Route path="/reset" element={<PageWrapper><HuellaVerde showDock={showDock} /></PageWrapper>} />
           {/* Legacy slug redirects (preserve SEO / old links) */}
+          <Route path="/lab" element={<Navigate to="/blueprint-lab" replace />} />
           <Route path="/huella-azul" element={<Navigate to="/blueprint-lab" replace />} />
           <Route path="/huella-roja" element={<Navigate to="/hackbar" replace />} />
           <Route path="/huella-verde" element={<Navigate to="/reset" replace />} />
