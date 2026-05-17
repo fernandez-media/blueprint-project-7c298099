@@ -70,6 +70,8 @@ const ICON_BOX_MOBILE_STYLE: CSSProperties = {
 const TEXT_COL_MOBILE_STYLE: CSSProperties = {
   display: "flex",
   flexDirection: "column",
+  alignItems: "center",
+  textAlign: "center",
   gap: 4,
   minWidth: 0,
   flex: 1,
@@ -82,6 +84,7 @@ const TITLE_MOBILE_STYLE: CSSProperties = {
   letterSpacing: "0.02em",
   color: "#000",
   lineHeight: 1.3,
+  textAlign: "center",
 };
 
 const DESC_MOBILE_STYLE: CSSProperties = {
@@ -91,6 +94,7 @@ const DESC_MOBILE_STYLE: CSSProperties = {
   lineHeight: 1.5,
   color: "rgba(0,0,0,0.6)",
   margin: "4px 0 0 0",
+  textAlign: "center",
 };
 
 /**
