@@ -138,6 +138,9 @@ const RITUALS: Ritual[] = [
         ],
       },
     ],
+  },
+];
+
 
 const PACKS = [
   { qty: "3", label: "Juices", price: "$15" },
