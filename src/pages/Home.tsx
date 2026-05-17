@@ -280,12 +280,12 @@ const Home = ({ showDock }: { showDock: boolean }) => {
     <>
     <SEO
       title="Blueprint Project — Premium Fitness Club in San Juan, PR"
-      description="Blueprint Project is a premium fitness club in Santurce, San Juan. Training, nutrition, and recovery engineered for human evolution. Three fissures, one system."
-      canonical="https://blueprintproject.com/"
+      description="Premium fitness club in Santurce, San Juan. Training, nutrition, and recovery engineered for human evolution."
+      canonical="https://projectblueprintdata.com/"
       ogTitle="Blueprint Project — Premium Fitness Club"
       ogDescription="Training, nutrition, and recovery engineered for human evolution. Built for those who choose precision over pressure."
-      ogImage="/og-image.png"
-      ogUrl="https://blueprintproject.com/"
+      ogImage="https://projectblueprintdata.com/og-image.jpg"
+      ogUrl="https://projectblueprintdata.com/"
     />
     <motion.main
       initial={{ opacity: 0 }}
