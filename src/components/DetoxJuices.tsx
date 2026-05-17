@@ -157,7 +157,8 @@ const DetoxJuices = () => {
       {...scrollRevealCinematic}
       style={{
         backgroundColor: "#0a0a0a",
-        padding: "32px 6% 88px",
+        padding: "0 6% 88px",
+        marginTop: "-48px",
         position: "relative",
         zIndex: 1,
       }}
