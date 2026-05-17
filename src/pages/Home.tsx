@@ -86,10 +86,10 @@ const aboutImages = [
 ];
 
 const labImages = [
-  "/blueprint-lab/blueprint-lab-1.jpg",
-  "/blueprint-lab/blueprint-lab-2.jpg",
-  "/blueprint-lab/blueprint-lab-3.jpg",
-  "/blueprint-lab/blueprint-lab-4.jpg",
+  "/blueprint-lab/lab-1.jpg",
+  "/blueprint-lab/lab-2.jpg",
+  "/blueprint-lab/lab-3.jpg",
+  "/blueprint-lab/lab-4.jpg",
 ];
 
 const hackbarImages = [
