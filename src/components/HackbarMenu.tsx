@@ -252,7 +252,7 @@ const HackbarMenu = () => {
         .hbm-title .menu-word {
           font-weight: 300;
           opacity: 0.7;
-          font-size: clamp(14px, 5vw, 34px);
+          font-size: clamp(11px, 4vw, 34px);
           letter-spacing: 0.12em;
         }
         .hbm-sub {
