@@ -2,14 +2,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { scrollRevealCinematic } from "@/lib/scrollAnimations";
 
-type Juice = { name: string; ingredients: string[] };
+type Juice = { name: string; benefits: string[] };
 type Ritual = {
   id: string;
   number: string;
   name: string;
   tagline: string;
   color: string;
-  juices: [Juice, Juice];
+  juices: Juice[];
 };
 
 const RITUALS: Ritual[] = [
@@ -22,11 +22,36 @@ const RITUALS: Ritual[] = [
     juices: [
       {
         name: "SUNRISE DRIVE",
-        ingredients: ["Orange", "Carrot", "Turmeric", "Ginger", "Lemon", "Lime"],
+        benefits: [
+          "Natural energy support",
+          "Immune system support",
+          "Metabolism activation",
+          "Digestive stimulation",
+          "Anti-inflammatory support",
+          "Hydration & vitamin C boost",
+        ],
       },
       {
         name: "GOLDEN RUSH",
-        ingredients: ["Orange", "Pineapple", "Carrot", "Turmeric", "Ginger"],
+        benefits: [
+          "Fast natural energy",
+          "Digestive enzyme support",
+          "Liver & detox support",
+          "Anti-inflammatory recovery",
+          "Immune reinforcement",
+          "Antioxidant protection",
+        ],
+      },
+      {
+        name: "SOLAR LIFT",
+        benefits: [
+          "Electrolyte replenishment",
+          "Deep hydration",
+          "Smooth sustained energy",
+          "Recovery support",
+          "Metabolic balance",
+          "Cellular hydration",
+        ],
       },
     ],
   },
@@ -39,28 +64,35 @@ const RITUALS: Ritual[] = [
     juices: [
       {
         name: "QUIET FLOW",
-        ingredients: [
-          "Green Apple",
-          "Cucumber",
-          "Spinach",
-          "Celery",
-          "Green Grapes",
-          "Lemon",
-          "Lime",
-          "Ginger",
+        benefits: [
+          "Deep hydration",
+          "Gentle detox support",
+          "Digestive balance",
+          "Mineral replenishment",
+          "Stable clean energy",
+          "Supports circulation",
         ],
       },
       {
         name: "PURE STATE",
-        ingredients: [
-          "Romaine",
-          "Cucumber",
-          "Green Apple",
-          "Green Grapes",
-          "Lime",
-          "Mint",
-          "Lemon",
-          "Ginger",
+        benefits: [
+          "Nervous system calming",
+          "Cooling digestive support",
+          "Alkalizing hydration",
+          "Bloating reduction support",
+          "Refreshing mineral intake",
+          "Detox pathway support",
+        ],
+      },
+      {
+        name: "CLEAR FIELD",
+        benefits: [
+          "Liver detox support",
+          "Antioxidant-rich nutrition",
+          "Immune support",
+          "Digestive stimulation",
+          "Micronutrient replenishment",
+          "Supports metabolic regulation",
         ],
       },
     ],
@@ -74,28 +106,41 @@ const RITUALS: Ritual[] = [
     juices: [
       {
         name: "CRIMSON WAVE",
-        ingredients: [
-          "Watermelon",
-          "Strawberry",
-          "Lemon",
-          "Lime",
-          "Ginger",
+        benefits: [
+          "Hydration recovery",
+          "Circulation support",
+          "Skin & collagen support",
+          "Anti-inflammatory recovery",
+          "Antioxidant protection",
+          "Refreshing electrolyte support",
         ],
       },
       {
         name: "IRON FLOW",
-        ingredients: [
-          "Beet",
-          "Red Apple",
-          "Strawberry",
-          "Lemon",
-          "Lime",
-          "Ginger",
+        benefits: [
+          "Nitric oxide support",
+          "Improved circulation",
+          "Exercise performance support",
+          "Oxygen delivery support",
+          "Recovery enhancement",
+          "Endurance support",
+        ],
+      },
+      {
+        name: "RUBY REVIVAL",
+        benefits: [
+          "Powerful antioxidant support",
+          "Cellular recovery",
+          "Immune resilience",
+          "Skin vitality support",
+          "Anti-inflammatory protection",
+          "Cardiovascular support",
         ],
       },
     ],
   },
 ];
+
 
 const PACKS = [
   { qty: "3", label: "Juices", price: "$15" },
@@ -318,10 +363,10 @@ const DetoxJuices = () => {
         }
         .dxj-juices {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 12px;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 900px) {
           .dxj-juices { grid-template-columns: 1fr; }
         }
         .dxj-juice {
@@ -342,7 +387,9 @@ const DetoxJuices = () => {
           display: flex;
           align-items: center;
           gap: 10px;
-          margin-bottom: 10px;
+          margin-bottom: 12px;
+          padding-bottom: 10px;
+          border-bottom: 1px dashed rgba(255,255,255,0.08);
         }
         .dxj-juice-dot {
           width: 10px; height: 10px;
@@ -359,21 +406,31 @@ const DetoxJuices = () => {
           letter-spacing: 0.04em;
           margin: 0;
         }
-        .dxj-ingredients {
+        .dxj-benefits {
+          list-style: none;
+          padding: 0;
+          margin: 0;
           display: flex;
-          flex-wrap: wrap;
-          gap: 4px;
+          flex-direction: column;
+          gap: 7px;
         }
-        .dxj-ing {
+        .dxj-benefit {
+          display: flex;
+          align-items: flex-start;
+          gap: 9px;
           font-family: 'Space Grotesk', sans-serif;
-          font-size: 10px;
-          letter-spacing: 0.04em;
-          color: rgba(255,255,255,0.7);
-          padding: 3px 7px;
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-radius: 4px;
-          text-transform: uppercase;
+          font-size: 12px;
+          line-height: 1.4;
+          color: rgba(255,255,255,0.78);
+          letter-spacing: 0.01em;
+        }
+        .dxj-benefit-mark {
+          width: 5px; height: 5px;
+          border-radius: 50%;
+          background: var(--dxj-accent);
+          box-shadow: 0 0 6px var(--dxj-accent);
+          margin-top: 7px;
+          flex-shrink: 0;
         }
 
         .dxj-packs {
@@ -549,13 +606,14 @@ const DetoxJuices = () => {
                       <span className="dxj-juice-dot" />
                       <h3 className="dxj-juice-name">{j.name}</h3>
                     </div>
-                    <div className="dxj-ingredients">
-                      {j.ingredients.map((ing) => (
-                        <span key={ing} className="dxj-ing">
-                          {ing}
-                        </span>
+                    <ul className="dxj-benefits">
+                      {j.benefits.map((b) => (
+                        <li key={b} className="dxj-benefit">
+                          <span className="dxj-benefit-mark" aria-hidden />
+                          <span>{b}</span>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 ))}
               </div>
