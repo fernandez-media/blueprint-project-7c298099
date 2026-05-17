@@ -86,23 +86,58 @@
         "latitude": 18.4307,
         "longitude": -66.0563
       },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "05:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday","Sunday"],
+          "opens": "07:00",
+          "closes": "18:00"
+        }
+      ],
       "sameAs": [
         "https://instagram.com/proyectoblueprint"
       ],
-      "areaServed": {
-        "@type": "City",
-        "name": "San Juan",
-        "containedInPlace": {
-          "@type": "AdministrativeArea",
-          "name": "Puerto Rico"
-        }
-      },
       "amenityFeature": [
         {"@type": "LocationFeatureSpecification", "name": "Strength Training"},
         {"@type": "LocationFeatureSpecification", "name": "Nutrition Coaching"},
         {"@type": "LocationFeatureSpecification", "name": "Recovery Protocols"},
         {"@type": "LocationFeatureSpecification", "name": "Sauna"},
         {"@type": "LocationFeatureSpecification", "name": "Cold Therapy"}
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Product",
+          "name": "Essential Membership",
+          "description": "12 guided training sessions per month. Ideal for a consistent 3x/week routine at Blueprint Project.",
+          "brand": {"@type": "Brand", "name": "Blueprint Project"},
+          "offers": {"@type": "Offer", "price": "480", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://projectblueprintdata.com/"}
+        },
+        {
+          "@type": "Product",
+          "name": "Active Membership",
+          "description": "16 guided training sessions per month. Train 4x/week for more sessions and faster results.",
+          "brand": {"@type": "Brand", "name": "Blueprint Project"},
+          "offers": {"@type": "Offer", "price": "560", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://projectblueprintdata.com/"}
+        },
+        {
+          "@type": "Product",
+          "name": "All In Membership",
+          "description": "20 guided training sessions per month. Full commitment — train 5x/week at Blueprint Project.",
+          "brand": {"@type": "Brand", "name": "Blueprint Project"},
+          "offers": {"@type": "Offer", "price": "600", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://projectblueprintdata.com/"}
+        }
       ]
     }
     </script>

@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home -->
   <url>
     <loc>https://projectblueprintdata.com/</loc>
-    <lastmod>2026-04-26</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Huella Azul (Blueprint Lab) -->
   <url>
-    <loc>https://projectblueprintdata.com/huella-azul</loc>
-    <lastmod>2026-04-26</lastmod>
+    <loc>https://projectblueprintdata.com/lab</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Huella Roja (Hack Bar) -->
   <url>
-    <loc>https://projectblueprintdata.com/huella-roja</loc>
-    <lastmod>2026-04-26</lastmod>
+    <loc>https://projectblueprintdata.com/hackbar</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Huella Verde (Reset) -->
   <url>
-    <loc>https://projectblueprintdata.com/huella-verde</loc>
-    <lastmod>2026-04-26</lastmod>
+    <loc>https://projectblueprintdata.com/reset</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

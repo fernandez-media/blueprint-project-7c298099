@@ -1,0 +1,12 @@
+# Blueprint Project
+
+> Premium fitness club in Santurce, San Juan, Puerto Rico. Training, nutrition, and recovery engineered for human evolution.
+
+Blueprint Project is a boutique gym at 1951 Calle Loíza built around three pillars — Training (Blueprint Lab), Nutrition (HackBar), and Recovery (Reset).
+
+## Pages
+
+- [Home](/): Brand overview, the three pillars, memberships, and location.
+- [Blueprint Lab](/lab): Performance training methodology, programming, and coaching.
+- [HackBar](/hackbar): Nutrition engineering — meals built for performance, recovery, and body composition.
+- [Reset](/reset): Recovery protocols — sauna, ice bath, mobility, hyperbaric chamber.
