@@ -135,7 +135,8 @@ const HackbarMenu = () => {
       {...scrollRevealCinematic}
       style={{
         backgroundColor: "#0a0a0a",
-        padding: "8px 6% 88px",
+        padding: "0 6% 88px",
+        marginTop: "-32px",
         position: "relative",
         zIndex: 1,
       }}
