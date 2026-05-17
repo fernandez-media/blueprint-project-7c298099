@@ -44,11 +44,11 @@ const AnimatedRoutes = ({ showDock }: AnimatedRoutesProps) => {
       <Suspense fallback={null}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageWrapper><Home showDock={showDock} /></PageWrapper>} />
-          <Route path="/lab" element={<PageWrapper><MainLanding showDock={showDock} /></PageWrapper>} />
+          <Route path="/blueprint-lab" element={<PageWrapper><MainLanding showDock={showDock} /></PageWrapper>} />
           <Route path="/hackbar" element={<PageWrapper><HuellaRoja showDock={showDock} /></PageWrapper>} />
           <Route path="/reset" element={<PageWrapper><HuellaVerde showDock={showDock} /></PageWrapper>} />
           {/* Legacy slug redirects (preserve SEO / old links) */}
-          <Route path="/huella-azul" element={<Navigate to="/lab" replace />} />
+          <Route path="/huella-azul" element={<Navigate to="/blueprint-lab" replace />} />
           <Route path="/huella-roja" element={<Navigate to="/hackbar" replace />} />
           <Route path="/huella-verde" element={<Navigate to="/reset" replace />} />
           <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />

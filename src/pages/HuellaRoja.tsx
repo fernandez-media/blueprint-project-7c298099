@@ -34,7 +34,7 @@ const FingerprintSVG = ({ color, size = 48 }: { color: string; size?: number }) 
 );
 
 const HUELLAS = [
-  { color: "#1A6BFF", glow: "rgba(26,107,255,0.7)", route: "/lab", tooltip: "TRAINING" },
+  { color: "#1A6BFF", glow: "rgba(26,107,255,0.7)", route: "/blueprint-lab", tooltip: "TRAINING" },
   { color: "#FF3B3B", glow: "rgba(255,59,59,0.7)", route: "/hackbar", tooltip: "NUTRITION" },
   { color: "#22C55E", glow: "rgba(34,197,94,0.7)", route: "/reset", tooltip: "RECOVERY" },
 ];
