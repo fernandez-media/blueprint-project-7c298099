@@ -363,10 +363,10 @@ const DetoxJuices = () => {
         }
         .dxj-juices {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 12px;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 900px) {
           .dxj-juices { grid-template-columns: 1fr; }
         }
         .dxj-juice {
@@ -387,7 +387,9 @@ const DetoxJuices = () => {
           display: flex;
           align-items: center;
           gap: 10px;
-          margin-bottom: 10px;
+          margin-bottom: 12px;
+          padding-bottom: 10px;
+          border-bottom: 1px dashed rgba(255,255,255,0.08);
         }
         .dxj-juice-dot {
           width: 10px; height: 10px;
@@ -404,21 +406,31 @@ const DetoxJuices = () => {
           letter-spacing: 0.04em;
           margin: 0;
         }
-        .dxj-ingredients {
+        .dxj-benefits {
+          list-style: none;
+          padding: 0;
+          margin: 0;
           display: flex;
-          flex-wrap: wrap;
-          gap: 4px;
+          flex-direction: column;
+          gap: 7px;
         }
-        .dxj-ing {
+        .dxj-benefit {
+          display: flex;
+          align-items: flex-start;
+          gap: 9px;
           font-family: 'Space Grotesk', sans-serif;
-          font-size: 10px;
-          letter-spacing: 0.04em;
-          color: rgba(255,255,255,0.7);
-          padding: 3px 7px;
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-radius: 4px;
-          text-transform: uppercase;
+          font-size: 12px;
+          line-height: 1.4;
+          color: rgba(255,255,255,0.78);
+          letter-spacing: 0.01em;
+        }
+        .dxj-benefit-mark {
+          width: 5px; height: 5px;
+          border-radius: 50%;
+          background: var(--dxj-accent);
+          box-shadow: 0 0 6px var(--dxj-accent);
+          margin-top: 7px;
+          flex-shrink: 0;
         }
 
         .dxj-packs {
