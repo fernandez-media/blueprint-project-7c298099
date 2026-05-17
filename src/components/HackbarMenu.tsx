@@ -135,7 +135,8 @@ const HackbarMenu = () => {
       {...scrollRevealCinematic}
       style={{
         backgroundColor: "#0a0a0a",
-        padding: "8px 6% 88px",
+        padding: "0 6% 88px",
+        marginTop: "-32px",
         position: "relative",
         zIndex: 1,
       }}
@@ -239,7 +240,7 @@ const HackbarMenu = () => {
         .hbm-title {
           margin: 0;
           font-family: 'Michroma', sans-serif;
-          font-size: clamp(22px, 8.5vw, 60px);
+          font-size: clamp(18px, 7vw, 60px);
           line-height: 1;
           color: #fff;
           letter-spacing: 0.01em;
@@ -251,7 +252,7 @@ const HackbarMenu = () => {
         .hbm-title .menu-word {
           font-weight: 300;
           opacity: 0.7;
-          font-size: clamp(14px, 5vw, 34px);
+          font-size: clamp(11px, 4vw, 34px);
           letter-spacing: 0.12em;
         }
         .hbm-sub {
