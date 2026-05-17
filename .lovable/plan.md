@@ -1,55 +1,51 @@
-## Plan: Animación cinematográfica para los 4 Features de Home
+## Plan: Hack Bar — quitar Supplements + nuevo HACKBAR MENU
 
-### Objetivo
-Añadir una animación de entrada cinematográfica para las 4 tarjetas de features (Elite Training, Nutrition, Recovery, Mindset) en la home page, que se vea impresionante tanto en móvil como desktop sin afectar el tiempo de carga.
+### 1. Eliminar la carta de Supplements
+En `src/pages/HuellaRoja.tsx`, sección "FUEL YOUR SYSTEM" (~líneas 618-633):
+- Remover el `<FuelCard ... name="SUPPLEMENTS" .../>`.
+- Dejar únicamente la card "MEAL PREPS", centrada en su contenedor flex.
 
-### Estrategia (zero extra weight)
-- Todo basado en Framer Motion + CSS (ya cargados).
-- Sin imágenes, videos, ni fuentes adicionales.
-- GPU-accelerated transforms únicamente.
+### 2. Nueva sección: HACKBAR MENU
+Insertar inmediatamente después del bloque "FUEL YOUR SYSTEM" (antes de "HACKBAR STATION"), en el mismo archivo. Inspirada en la imagen adjunta pero traducida al lenguaje visual del sitio (rojo #FF3B3B, fondo negro, Michroma/Inter, glassmorphism + scanlines, no el look "papel" del Instagram).
 
-### Cambios
+#### Estructura del menú
+Tres módulos + un build system:
 
-#### 1. `src/lib/scrollAnimations.ts`
-- Nuevas variantes específicas para features:
-  - `cinematicFeatureReveal` — entrada con `clip-path` de reveal + blur + scale settle.
-  - `cinematicFeatureStagger` — stagger más dramático (alterna direcciones por índice).
-  - `cinematicFeatureMobile` — slide desde la derecha con overshoot sutil, optimizado para 390px.
-- Nuevos helpers:
-  - `scrollStaggerCinematicFeatures` — bundle para el contenedor de features.
+- **PROTEIN MODULE** (dot rojo `#FF3B3B`) — "Selección de proteínas limpias, alta biodisponibilidad."
+  - Churrasco · Pechuga · Salmón · Carne Molida
+- **CARB MODULE** (dot blanco/outline) — "Energía funcional. Nada inflamatorio."
+  - Majado de Viandas · Papas Salteadas · Arroz Jazmín
+- **VEGGIE MODULE** (dot verde `#22C55E`) — "Micronutrientes. Digestión. Balance."
+  - Espárragos · Brócoli · Zanahoria
+- **BUILD SYSTEM** (icono engranaje) — "Elige: 1 proteína · 1 carb · 1 veggie"
+- Tagline inferior: **"Feed clarity, not inflammation."**
 
-#### 2. `src/components/FeatureCard.tsx`
-- Recibe nueva prop `direction?: "up" | "left" | "right" | "down"` para variar la dirección de entrada según posición en grid.
-- Añade un **scan-line sweep** (div absoluto con gradiente lineal que cruza la tarjeta horizontalmente al entrar) — efecto "tech cinematic".
-- El scan-line se dispara vía Framer Motion `animate` sincronizado con la variante de entrada.
-- Mantiene el glow hover existente.
+#### Diseño visual (futurista, llamativo)
+- Contenedor: tarjeta full-width con borde sutil rojo, `background: rgba(255,255,255,0.02)`, `backdropFilter: blur(14px)`, esquinas tipo HUD (corner ticks como ya existen en el proyecto, p.ej. `.corner-tl/tr/bl/br`).
+- Header del menú:
+  - Título "HACKBAR" en Michroma muy grande + "MENU" en peso ligero al lado.
+  - Subtítulo "BLUEPRINT NUTRITION DIVISION" en Orbitron 10px tracking amplio.
+  - Línea horizontal animada (gradient rojo → transparente) debajo del header.
+- Cada módulo:
+  - Dot animado con pulso (`box-shadow` rojo/verde radial).
+  - Título en Michroma 18-20px (palabra clave + "MODULE" más ligero).
+  - Descripción Inter 12px gris.
+  - Lista de ítems con guion ASCII largo (`— ITEM`), uppercase, Space Grotesk, hover → ítem se desplaza 4px a la derecha + brillo rojo.
+- Animaciones (Framer Motion, ya cargado):
+  - Stagger reveal de módulos al entrar en viewport (`scrollStaggerCinematicFeatures` ya existe en `src/lib/scrollAnimations.ts`).
+  - Scanline horizontal sutil cruzando la carta cada ~6s (CSS keyframes).
+  - Grid de fondo punteado muy tenue (similar a `hud-topo-grid`).
+- BUILD SYSTEM destacado como bloque inferior con borde gradient animado y CTA visual "1 PROTEIN · 1 CARB · 1 VEGGIE".
+- Tagline final dentro de una "terminal bar" negra con bordes de puntos (`···· Feed clarity, not inflammation. ····`), reutilizando el estilo de `.bio-terminal-bar` que ya existe en el proyecto.
 
-#### 3. `src/pages/Home.tsx`
-- Contenedor de features (`about-features-desktop` y `about-features-mobile`) usa `scrollStaggerCinematicFeatures`.
-- Pasa `direction` alternada a cada FeatureCard:
-  - Desktop 2x2: arriba-izq → arriba-der → abajo-izq → abajo-der
-  - Mobile lista: todos desde abajo con stagger rápido
+#### Implementación técnica
+- Nuevo componente local `HackbarMenu` definido dentro de `HuellaRoja.tsx` (o como archivo nuevo `src/components/HackbarMenu.tsx` si crece). Mantener todo en estilos inline + clases ya existentes para no inflar CSS.
+- Mobile-first (390px): módulos apilados en columna, padding `24px`, título HACKBAR `clamp(40px, 12vw, 80px)`. Sin wrap del título.
+- Desktop: módulos en grid 3 columnas (Protein / Carb / Veggie), BUILD SYSTEM full-width abajo.
 
-### Mobile-first
-- Las distancias de slide son mayores en móvil (70px vs 40px desktop) para que el efecto sea visible en pantallas pequeñas.
-- Stagger más corto en móvil (0.06s) para que no se sienta lento.
-- El scan-line dura menos en móvil (600ms vs 900ms).
+### 3. QA
+- Verificar build (`tsc --noEmit` automático).
+- Revisar a 390px y desktop que nada se rompa y el menú quede entre Meal Preps y Hackbar Station.
 
-### Reduced motion
-- Todo colapsa a STATIC_VARIANT cuando `prefers-reduced-motion: reduce` o `data-no-motion`.
-
-```text
-Desktop grid (2x2):
-┌─────────────┬─────────────┐
-│  ← slide    │    slide →  │
-│   from      │    from     │
-│  top-left   │   top-right │
-├─────────────┼─────────────┤
-│  ← slide    │    slide →  │
-│   from      │    from     │
-│ bottom-left │ bottom-right│
-└─────────────┴─────────────┘
-
-Mobile list (1 col):
-Each card slides ↑ from bottom with stagger
-```
+### Archivos afectados
+- `src/pages/HuellaRoja.tsx` (editar)
