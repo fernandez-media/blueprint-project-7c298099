@@ -3,7 +3,7 @@
 
   <!-- Home -->
   <url>
-    <loc>https://blueprintproject.com/</loc>
+    <loc>https://projectblueprintdata.com/</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- Huella Azul (Blueprint Lab) -->
   <url>
-    <loc>https://blueprintproject.com/huella-azul</loc>
+    <loc>https://projectblueprintdata.com/huella-azul</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -19,7 +19,7 @@
 
   <!-- Huella Roja (Hack Bar) -->
   <url>
-    <loc>https://blueprintproject.com/huella-roja</loc>
+    <loc>https://projectblueprintdata.com/huella-roja</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -27,7 +27,7 @@
 
   <!-- Huella Verde (Reset) -->
   <url>
-    <loc>https://blueprintproject.com/huella-verde</loc>
+    <loc>https://projectblueprintdata.com/huella-verde</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
