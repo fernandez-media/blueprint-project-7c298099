@@ -630,6 +630,8 @@ const HuellaRoja = ({ showDock }: { showDock: boolean }) => {
 
       <HackbarMenu />
 
+      <DetoxJuices />
+
       {/* ═══ SECTION C: HACKBAR STATION ═══ */}
       <motion.section
         {...scrollReveal}
